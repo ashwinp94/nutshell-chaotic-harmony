@@ -3,6 +3,7 @@
         {
             "username": "Steve",
             "email": "meme@gmail.com",
+            "password":"password",
             "id": 1
         }
     ],
@@ -16,27 +17,27 @@
     ],
     "news": [
         {
-            "id": 1,
             "userId": 2,
             "timeStamp":"12/12/2018",
             "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
             "title": "Wormholes Allow Information to Escape Black Holes",
-            "synopsis": "Check out this recent discovery about workholes"
+            "synopsis": "Check out this recent discovery about workholes",
+            "id": 1
         }
     ],
     "tasks": [
         {
-            "id": 1,
             "userId": 1,
             "task": "Take out garbage",
-            "completionDate": "12/12/2018"
+            "completionDate": "12/12/2018",
+            "id": 1
         }
     ],
     "friends": [
         {
-            "id": 1,
             "userId": 1,
-            "otherFriendId": 3
+            "otherFriendId": 3,
+            "id": 1
         }
-    ] 
+    ]
 }
