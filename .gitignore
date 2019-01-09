@@ -10,3 +10,4 @@ obj
 .vscode
 dist
 .DS_store
+database.json
