@@ -8,4 +8,5 @@ obj
 *.db
 *.sqlite3
 .vscode
-dist
+.DS_Store
+db.json
