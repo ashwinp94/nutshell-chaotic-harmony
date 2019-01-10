@@ -11,6 +11,7 @@ const messageCollection = {
       },
       body: JSON.stringify(newMessageToSave)
         })
+        location.reload(true)
     }
 }
 

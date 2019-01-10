@@ -6,7 +6,7 @@ const chat = {
         chatHeader.textContent = "Chat"
 
         let chatName = document.createElement("section")
-        chatName.textContent = chatObject.userId;
+        chatName.textContent = chatObject.  userId;
         console.log(chatObject.user)
 
         let chatMessage = document.createElement("section")

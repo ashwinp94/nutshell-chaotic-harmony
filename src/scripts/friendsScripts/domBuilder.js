@@ -20,6 +20,26 @@ const messageForm = {
         submitButton.textContent = "Send"
         submitButton.setAttribute("id", "chat_send")
 
-        submitButton.addEventListener("click", messageForm.handleAddNewContact)
+        submitButton.addEventListener("click", messageForm.handleAddNewMessage)
+
+        let chatFormFragment = document.createDocumentFragment()
+        chatFormFragment.appendChild(chatMessageField)
+        chatFormFragment.appendChild(submitButton)
+
+        let inputArticle = document.querySelector("#messagesInput")
+        inputArticle.appendChild(chatFormFragment)
+
+
+
+    },
+    handleAddNewMessage() {
+        let inputMessage = document.querySelector("#chat_text").value
+
+        let newMessage = {
+            message: inputMessage
+        }
+        messageCollection.postAllMessages(newMessage)
     }
 }
+
+export default messageForm
