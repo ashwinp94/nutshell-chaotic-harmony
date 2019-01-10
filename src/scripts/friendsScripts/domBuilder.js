@@ -1,8 +1,11 @@
 import messageCollection from "./fetch"
-import chat from "./createObject";
+
+let currentUserId = 1;
 
 const messageForm = {
     createAndAppendInput() {
+        let chatHeader = document.createElement("h3")
+        chatHeader.textContent = "Chat"
 
         let chatMessageField = document.createElement("fieldset")
 
@@ -29,14 +32,13 @@ const messageForm = {
         let inputArticle = document.querySelector("#messagesInput")
         inputArticle.appendChild(chatFormFragment)
 
-
-
     },
     handleAddNewMessage() {
         let inputMessage = document.querySelector("#chat_text").value
 
         let newMessage = {
-            message: inputMessage
+            message: inputMessage,
+            userId: currentUserId,
         }
         messageCollection.postAllMessages(newMessage)
     }
