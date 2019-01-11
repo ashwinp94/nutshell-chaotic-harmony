@@ -12,6 +12,10 @@ const messageCollection = {
       body: JSON.stringify(newMessageToSave)
         })
         location.reload(true)
+    },
+    getMessage(chatId) {
+        return fetch(`http://localhost:8088/fridge/${chatId}`)
+        .then(response => response.json())
     }
 }
 

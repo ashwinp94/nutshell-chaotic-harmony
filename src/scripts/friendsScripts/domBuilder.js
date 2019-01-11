@@ -4,9 +4,6 @@ let currentUserId = 1;
 
 const messageForm = {
     createAndAppendInput() {
-        let chatHeader = document.createElement("h3")
-        chatHeader.textContent = "Chat"
-
         let chatMessageField = document.createElement("fieldset")
 
         let chatNameLabel = document.createElement("label")
@@ -33,12 +30,19 @@ const messageForm = {
         inputArticle.appendChild(chatFormFragment)
 
     },
+    createChatHeader() {
+        let header1 = `<h1>Chat With Anyone!</h1>`;
+        let headerContainer = document.querySelector("#chatHeader")
+        headerContainer.innerHTML= header1
+    },
     handleAddNewMessage() {
         let inputMessage = document.querySelector("#chat_text").value
+        let currentTime = new Date();
 
         let newMessage = {
             message: inputMessage,
             userId: currentUserId,
+            time: currentTime,
         }
         messageCollection.postAllMessages(newMessage)
     }
