@@ -1,7 +1,7 @@
 import messageCollection from "./fetch"
 import messageList from "./list"
 
-let currentUserId = 1,
+let currentUserId = 1;
 
 const messageEditForm = {
     createAndAppendForm (articleId, messageObjToEdit){
@@ -17,11 +17,12 @@ const messageEditForm = {
 
         let updateButton = document.createElement("button")
         updateButton.textContent = "Update"
-
         updateButton.addEventListener("click", ()=>{
+            let currentTime = new Date();
             let editedMessage = {
                 message: messageEditInput.value,
                 userId: currentUserId,
+                time: currentTime,
             }
             messageCollection.putExistingMessages(messageObjToEdit.id, editedMessage)
             .then( () => {
