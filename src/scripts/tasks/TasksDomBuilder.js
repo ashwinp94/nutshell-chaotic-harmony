@@ -7,10 +7,11 @@ const TasksDomBuilder = {
   // The form will contain input fields for a user to add a new task
   // to the to do list
   createAndAppendForm () {
-    
+// HEADER
     let taskFormHeader = document.createElement("h1");
     formHeader.textContent = "Add Tasks";
 
+// TASK
     let taskNameField = document.createElement("fieldset");
 
     let taskNameLabel = document.createElement("label");
@@ -23,81 +24,66 @@ const TasksDomBuilder = {
     taskNameField.appendChild(taskNameLabel);
     taskNameField.appendChild(taskNameInput);
 
-
+// DUE DATE
     let taskDueDateField = document.createElement("fieldset");
 
     let taskDueDateLabel = document.createElement("label");
-    // dueDateLabel.textContent = "Expiration";
-    dueDateLabel.setAttribute("for", "dueDate");
+    taskDueDateLabel.setAttribute("for", "dueDate");
 
     let taskDueDateInput = document.createElement("input");
-    dueDateInput.setAttribute("id", "dueDate");
-    dueDateInput.setAttribute("type", "date");
-    dueDateInput.setAttribute("name", "dueDate");
+    taskDueDateInput.setAttribute("id", "dueDate");
+    taskDueDateInput.setAttribute("type", "date");
+    taskDueDateInput.setAttribute("name", "dueDate");
     taskDueDateField.appendChild(taskDueDateLabel);
     taskDueDateField.appendChild(taskDueDateInput);
     
+// SUBMIT BUTTON
+    let submitButton = document.createElement("button");
+    submitButton.textContent = "Add Tasks";
+    submitButton.setAttribute("class", "task__save");
 
-    let submitButton = document.createElement("button")
-    submitButton.textContent = "Add Tasks"
-    submitButton.setAttribute("class", "task__save")
+// 2. Attach event listener to button in form
+    submitButton.addEventListener("click", this.handleAddNewTask);
 
-    // 2. Attach event listener to button in form
-    submitButton.addEventListener("click", this.handleAddNewTask)
+// 3. Append the HTML form to the DOM
+    let taskFormFragment = document.createDocumentFragment();
+    taskFormFragment.appendChild(taskFormHeader);
+    taskFormFragment.appendChild(taskNameField);
+    taskFormFragment.appendChild(taskDueDateField);
+    taskFormFragment.appendChild(submitButton);
 
-    // 3. Append the HTML form to the DOM
-    //Notice that I have added an article element to my index.html with the class "form".
-    let foodFormFragment = document.createDocumentFragment()
-    taskFormFragment.appendChild(taskFormHeader)
-    taskFormFragment.appendChild(taskNameField)
-    taskFormFragment.appendChild(taskDueDateField)
-    taskFormFragment.appendChild(submitButton)
-
-    let formArticle = document.querySelector(".form")
-    formArticle.appendChild(foodFormFragment)
+    let taskFormArticle = document.querySelector("#tasksOutput");
+    taskFormArticle.appendChild(taskFormFragment);
 
   },
-  // This module will also contain the function that executes when the button in the form is clicked. When the button in the form is clicked, the following will happen:
-  handleAddNewFood (event) {
-    // 1. Get user input that user entered
-    let inputFoodName = document.querySelector("#food__name").value
-    let inputFoodExpiration = document.querySelector("#food__expiration").value
-    let inputFoodType = document.querySelector("#food__type").value
+  
+  handleAddNewTask (event) {
+   
+    let inputTaskName = document.querySelector("#task").value
+    let inputTaskDueDate = document.querySelector("#dueDate").value
+    let inputComplete = false;
 
-    // 2. Create a new object with the same structure we have been using throughout the application to represent a food item:
-    // {
-      //   name: "user input name",
-      //   expiration: "user input expiration",
-      //   type: "user input type"
-    // }
+    // "tasks": [ {
+    //       "id": 1,
+    //       "userId": 1,
+    //       "task": "Take out garbage",
+    //       "dueDate": "12/12/2018",
+    //       "complete": "false"
+    //   }  ],
 
-    let newFood = {
-      name: inputFoodName,
-      expiration: inputFoodExpiration,
-      type: inputFoodType
+    let newTask = {
+      userId: userId,
+      task: inputTaskName,
+      dueDate: inputTaskDueDate,
+      complete: inputComplete
     }
 
-    // 3. Call the method(postNewFood) with the fetch request to POST to the API and pass it the object we created in the previous step
-
-    // Notice the import statement at the top of the module so I can call a method in the foodCollection module.
-
-    // *****IMPORTANT*****
-    // You will notice at this point that while a new food item is being added to our API, unless you refresh the application, the newly added item will not show up on the DOM. We definitely do not want our user to have to hit refresh every time they add new food to their refrigerator.
-
-    // We also do NOT want to manually add our new food item to the list of food on the DOM. Instead, we want our data to be our point of truth. Our DOM should always use the data from our API to render the DOM. Logically, here are the steps we want to take place.
-    // 1. Add new food item to the API using a POST HTTP request.
-    //     We are already doing this. We are using the fetch defined in the foodCollection module to add a new food item to the API.
-    // 2. After the new item has been added, we want to get a list of all the food items (using a GET HTTP request) and render them to the DOM.
-          // Because we want to make sure we only do this after the first step is done, we will return the fetch call that is doing the POST and chain a .then to the call (just like we do with the GET). This means we are doing the POST and then waiting until a response comes back before doing this step. The reason we want to wait is because we want to be sure that when we ask our API for the list of food items, the newly added item is on that list. So we wait until it has been added before using a GET request to get a list of all food items and rendering them to the DOM.
-          
-          // But that sounds awfully familiar: make a GET HTTP request to the API for a list of all food items, iterate over that list and build the HTML for each item, append the HTML to the DOM. This is exactly what our fridgify method in our foodList module is already doing. Which means I can simply call that method from here. Once again, note that I am importing the appropriate module at the top of this file.
-    // To summarize, we are adding a new item to the API, then getting an updated list of items from the API and rerendering the DOM.
-    // *******************
-    foodCollection.postNewFood(newFood)
+    
+    TasksFetch.postNewTask(newTask)
     .then(response => {
-      foodList.fridgify()
+      TasksList.createDomList()
     })
   }
 }
 
-export default foodForm
+export default TasksDomBuilder
