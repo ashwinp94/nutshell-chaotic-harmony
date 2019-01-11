@@ -1,19 +1,24 @@
 {
-    "username": [
+    "user": [
         {
         "id":1,
-        "username": "dek",
-        "email": "dek.haji@email.com"
+        "username": "selamawit",
+        "email": "selamawit@email.com"
         },
         {
             "id": 2,
-            "username": "daniel",
-            "email": "daniel@email.com"
+            "username": "ashwin",
+            "email": "ashwin@email.com"
         },
         {
             "id": 3,
-            "username": "debry",
+            "username": "coleen",
             "email": "dabri@email.com"
+        },
+        {
+            "id": 4,
+            "username": "dek",
+            "email": "dek.haji@email.com"
         }
     ]
 }

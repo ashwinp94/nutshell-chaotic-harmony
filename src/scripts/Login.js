@@ -1,5 +1,5 @@
 const Login = {
-
+// adding Login page to the dom
     appendLogin() {
     let login = document.querySelector("#userInput");
     login.innerHTML = ` <h1>Welcome to Nutshell</h1>
@@ -18,18 +18,18 @@ const Login = {
       <input type="text" name="email">
     </div>
     <button class="button--login">Login</button>
-    <button class="button--newAccount">New account</button>
+    <button class="button--account">Sign up</button>
   </section>`
 },
-
-registerNewUser() {
+// after when you click the register button, a new form that have email and password inputwill populate the dom
+signUp() {
 
     let registerDom = document.querySelector("#usersOutput");
-    let registerAccount = document.querySelector(".button--newAccount");
+    let registerAccount = document.querySelector(".button--account");
     registerAccount.addEventListener("click", function() {
         registerDom.innerHTML = ` <form>
         <div class="dek__usernamePrompt">
-        new username: 
+        New username: 
       </div>
       <div class="usernameInput">
         <input type="text" name="username">
@@ -37,14 +37,16 @@ registerNewUser() {
       <div class="emailPrompt">
           Email:
       </div>
-      <div class="emailInput">
-        <input type="text" name="email">
-        </form>`
+      <div class="emailInput"> 
+       <input type="text" name="email"></br>
+       <button class="newAccount">Register</button>
+       </form>`
     })
-     },
-        getUserEntry() {
-            return fetch("http://localhost:8088/username")
-            .then(entries => database.json())
-        }
-    }
+}
+}
+
+
+
+
 export default Login
+
