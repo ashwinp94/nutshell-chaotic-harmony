@@ -1,4 +1,5 @@
-//import NavBar from "./NavBar"
+// NAVBAR
+import NavBar from "./NavBar"
 
 // TASKS
 import TasksCreateObject from ".tasks/TasksCreateObject"
@@ -7,6 +8,22 @@ import TasksEditForm from ".tasks/TasksEdit Form"
 import TasksFetch from ".tasks/TasksFetch"
 import TasksList from ".tasks/TasksList"
 
-//NavBar.navBuilder();
+// CHAT
+import messageList from "./friendsScripts/list"
+import messageForm from "./friendsScripts/domBuilder"
 
+
+// *********************
+
+// NAVBAR
+NavBar.navBuilder();
+
+// TASKS
 TasksDomBuilder.createAndAppendForm()
+
+// CHAT
+messageForm.createChatHeader();
+messageList.chatify();
+messageForm.createAndAppendInput();
+
+
