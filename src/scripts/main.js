@@ -1,8 +1,9 @@
 import Login from "./Login"
+import Data from "./UserData"
+
+
 
 Login.appendLogin();
-Login.signUp();
-Login.newRegister()
 
 
 

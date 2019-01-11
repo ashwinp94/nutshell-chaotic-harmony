@@ -1,36 +1,22 @@
-    // //  const UserserData = "http://localhost:8088/users";
-    // //  const authDataManager = {
-    // //  getUsers: () => {
-    // //      return fetch(`${url}`)
-    // //          .then(res => res.json())
-    // //  }
-    // // }
-
-    // // const getUserName = (activeUser) => {
-    // //     return authDataManager.singleUser(activeUser).then((user)=> {
-    // //       return user.username
-    // //     })
-    // //   }
-
-
-
-
-
+const Data = {
+    getData() {
+        return fetch("http://localhost:8088/user")
+        .then(Response => Response.json())
+    },
+    postNewUser(newUser) {
+        return fetch("http://localhost:8088/user", {
+            method:"POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newUser)
+        })
+    },
+}
+Data.getData()
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    // export default UserData
+export default Data
