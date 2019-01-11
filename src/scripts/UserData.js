@@ -13,7 +13,7 @@ const Data = {
         })
     },
 }
-Data.getData()
+
 
 
 

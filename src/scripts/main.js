@@ -2,8 +2,12 @@ import Login from "./Login"
 import Data from "./UserData"
 
 
-
+Data.getData()
 Login.appendLogin();
+Login.signUp()
+Login.testEvent()
+
+
 
 
 
