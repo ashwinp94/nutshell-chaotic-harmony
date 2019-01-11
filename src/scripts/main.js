@@ -1,7 +1,6 @@
-import messageList from "./friendsScripts"
-import messageForm from "./friendsScripts"
+import messageList from "./friendsScripts/list"
+import messageForm from "./friendsScripts/domBuilder"
 
-let currentUserId = 1;
 
 messageForm.createChatHeader();
 messageList.chatify();

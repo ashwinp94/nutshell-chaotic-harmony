@@ -14,8 +14,17 @@ const messageCollection = {
         location.reload(true)
     },
     getMessage(chatId) {
-        return fetch(`http://localhost:8088/fridge/${chatId}`)
+        return fetch(`http://localhost:8088/messages/${chatId}`)
         .then(response => response.json())
+    },
+    putExistingMessages(chatId, messagesToEdit){
+        return fetch(`http://localhost:8088/messages/${chatId}`, {
+      method: "PUT",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(messagesToEdit)
+        })
     }
 }
 

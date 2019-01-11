@@ -1,5 +1,5 @@
 import messageCollection from "./fetch"
-
+import messageEditForm from "./editForm"
 
 const chat = {
     chatBuilder(chatObject){
@@ -17,17 +17,19 @@ const chat = {
 
         let editMessageButton = document.createElement("button")
         editMessageButton.textContent = "Edit",
-        editMessageButton.addEventListener("click", () =>{
+        editMessageButton.addEventListener("click", () => {
             let articleId = event.target.parentNode.id
             let chatId = articleId.split("--")[1]
-
+            messageCollection.getMessage(chatId)
+            .then(response => {
+                messageEditForm.createAndAppendForm(chatId, response)
+            })
         })
-
-
 
         chatArea.appendChild(chatName);
         chatArea.appendChild(chatMessage);
         chatArea.appendChild(chatTime);
+        chatArea.appendChild(editMessageButton);
 
         return chatArea
     }

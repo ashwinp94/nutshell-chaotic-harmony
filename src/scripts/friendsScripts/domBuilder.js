@@ -31,7 +31,7 @@ const messageForm = {
 
     },
     createChatHeader() {
-        let header1 = `<h1>Chat With Anyone!</h1>`;
+        let header1 = "<h1>Chat With Anyone!</h1>";
         let headerContainer = document.querySelector("#chatHeader")
         headerContainer.innerHTML= header1
     },
