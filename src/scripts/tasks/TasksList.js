@@ -4,14 +4,14 @@ import TasksCreateObject from "./TasksCreateObject"
 const TasksList = {
   createDomList(){
     
-    taskCollection.getAllTasks()
+    TasksFetch.getAllTasks()
     .then(allTasks => {
       let taskDocFragment = document.createDocumentFragment()
-      let taskHtml = task.taskBuilder(taskItem)
+      let taskHtml = TasksCreateObject.taskBuilder(taskItem)
       taskDocFragment.appendChild(taskHtml)
       })
 
-      let outputArticle = document.querySelector(".taskOutput")
+      let outputArticle = document.querySelector(".tasksOutput")
 
       //This while loop essentially removes all child nodes of an element
       //until the element has no child nodes left. It is equivalent to the
@@ -25,10 +25,9 @@ const TasksList = {
       while (outputArticle.firstChild) {
         outputArticle.removeChild(outputArticle.firstChild);
       }
-      outputArticle.appendChild(foodDocFragment)
+      outputArticle.appendChild(taskDocFragment)
 
-    })
+    }
   }
-}
 
 export default TasksList
