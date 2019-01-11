@@ -43,8 +43,28 @@ const newsDomBuilder= {
                 saveArticleBtn.appendChild(saveBtn)
                 newsOutput.appendChild(saveArticleBtn)
                 // add eventListener to the save button
-            })
-            // function executed when button clicked and gets the value entered in the form, create an object, pass the to post fetch call
-        }
+                saveArticleBtn.addEventListener("click", newsDomBuilder.handleAddNewArticle)
+        })
+// function executed when button clicked and gets the value entered in the form, create an object, pass the to post fetch call
+    },
+    handleAddNewArticle() {
+        let inputArticleTitle = document.querySelector("#new-title").value
+        let inputArticleSynopsis = document.querySelector("#new-Synopsis").value
+        let inputArticleUrl = document.querySelector("#new-link").value
+        // let userIdDisplay = `${news.userId}`
+        // let timeStampDisplay = `${news.timeStamp}`
+        let newArticleObj =
+            {
+                // userId: userIdDisplay,
+                // timeStamp: timeStampDisplay,
+                title: inputArticleTitle,
+                synopsis: inputArticleSynopsis,
+                url: inputArticleUrl
+            }
+            // new article object passed to post fetch call
+        newsFetch.postNewArticle(newArticleObj)
+        // .then(response => {
+            newsList.newshtmlappending()
+    }
 }
 export default newsDomBuilder
