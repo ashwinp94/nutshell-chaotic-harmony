@@ -1,8 +1,10 @@
 import messageCollection from "./fetch"
 import messageList from "./list"
 
+let currentUserId = 1,
+
 const messageEditForm = {
-    createAndAppendForm (chatId, messageObjToEdit){
+    createAndAppendForm (articleId, messageObjToEdit){
         let messageEditField = document.createElement("p");
 
         let messageEditLabel = document.createElement("label")
@@ -19,13 +21,14 @@ const messageEditForm = {
         updateButton.addEventListener("click", ()=>{
             let editedMessage = {
                 message: messageEditInput.value,
+                userId: currentUserId,
             }
             messageCollection.putExistingMessages(messageObjToEdit.id, editedMessage)
             .then( () => {
                 messageList.chatify()
             })
         })
-        let messageItemArticle = document.querySelector(`#${chatId}`)
+        let messageItemArticle = document.querySelector(`#${articleId}`)
 
         while(messageItemArticle.firstChild){
             messageItemArticle.removeChild(messageItemArticle.firstChild)

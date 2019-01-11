@@ -22,7 +22,7 @@ const chat = {
             let chatId = articleId.split("--")[1]
             messageCollection.getMessage(chatId)
             .then(response => {
-                messageEditForm.createAndAppendForm(chatId, response)
+                messageEditForm.createAndAppendForm(articleId, response)
             })
         })
 
