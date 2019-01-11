@@ -6,7 +6,7 @@ const NavBar = {
 		<nav>
 			<ul>
 				<li class="liOne"><a href="#">Home</a></li>
-				<li class="liTwo"><a href="#">To-Do</a></li>
+				<li class="liTwo"><a href="/tasks/TasksDomBuilder.js">To-Do</a></li>
 				<li class="liThree"><a href="#" class="color3">Events</a></li>
 				<li class="liFour"><a href="#">News</a></li>
 				<li class="liFive"><a href="#">Logout</a></li>

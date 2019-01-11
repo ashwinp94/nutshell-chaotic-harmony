@@ -1,11 +1,11 @@
 const TasksFetch = {
-   .
+
     getAllTasks() {
       return fetch("http://localhost:8088/tasks")
       .then(response => response.json())
     },
   
-    postNewTask(newTasksToSave) {
+    postNewTask(newTaskToSave) {
       return fetch("http://localhost:8088/tasks", {
         method: "POST",
         headers: {
@@ -26,7 +26,7 @@ const TasksFetch = {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(foodToEdit)
+        body: JSON.stringify(taskToEdit)
       })
     }
   }

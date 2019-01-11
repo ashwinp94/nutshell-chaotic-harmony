@@ -9,7 +9,7 @@ const TasksDomBuilder = {
   createAndAppendForm () {
 // HEADER
     let taskFormHeader = document.createElement("h1");
-    formHeader.textContent = "Add Tasks";
+    taskFormHeader.textContent = "Add Tasks";
 
 // TASK
     let taskNameField = document.createElement("fieldset");
@@ -36,7 +36,6 @@ const TasksDomBuilder = {
     taskDueDateInput.setAttribute("name", "dueDate");
     taskDueDateField.appendChild(taskDueDateLabel);
     taskDueDateField.appendChild(taskDueDateInput);
-    
 // SUBMIT BUTTON
     let submitButton = document.createElement("button");
     submitButton.textContent = "Add Tasks";
@@ -54,11 +53,10 @@ const TasksDomBuilder = {
 
     let taskFormArticle = document.querySelector("#tasksOutput");
     taskFormArticle.appendChild(taskFormFragment);
-
+    console.log(taskFormArticle)
   },
   
-  handleAddNewTask (event) {
-   
+  handleAddNewTask () {
     let inputTaskName = document.querySelector("#task").value
     let inputTaskDueDate = document.querySelector("#dueDate").value
     let inputComplete = false;
@@ -71,6 +69,8 @@ const TasksDomBuilder = {
     //       "complete": "false"
     //   }  ],
 
+// Until we pass in a value
+let userId = "Colleen"
     let newTask = {
       userId: userId,
       task: inputTaskName,
