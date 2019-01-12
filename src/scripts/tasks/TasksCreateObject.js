@@ -2,55 +2,29 @@
  import TasksList from "./TasksList"
  import TasksEditForm from "./TasksEditForm"
 
-// // Task object structure:
-// // "tasks": [
-// //     {
-// //         "id": 1,
-// //         "userId": 1,
-// //         "task": "Take out garbage",
-// //         "dueDate": "12/12/2018",
-// //         "complete": "False"
-// //     }
-// // ],
-// // <article>
-// // <h1>Task List</h1>
-// // <h2>Click to Edit or Check Complete</h2><br>
-
-// // List of Tasks produced by looping thru array - Call taskList
-// // <span class="spanClass"><input type="checkbox" name="complete" value="false">
-// // <p>dueDate value</p>
-// // <button>task value</button>
-
-// // <br><br>
-// // <h2>Add New Task</h2>
-// // <label for="dueDate">Due Date</label><br>
-// // <input type="date" name="dueDate" id="dueDate">
-// // <label for"task">Task</label><br>
-// // <input type="text" name="task">
-// // </article>
-
  const TasksCreateObject = {
-   taskBuilder(taskObject) {
-   let taskListField = document.createElement("fieldset");
-   taskListField.setAttribute("class", "listInRow");
-   
-   let editTaskNameBtn = document.createElement("button");
-   editTaskNameBtn.textContent = taskObject.task;
-   console.log(editTaskNameBtn.textContent);
+   taskBuilder(taskItem) {
+
+    let taskListField = document.createElement("fieldset");
+    taskListField.setAttribute("class", "listItemContainer");
+    
+    let editTaskNameBtn = document.createElement("button");
+    editTaskNameBtn.textContent = taskItem.task;
+    console.log(editTaskNameBtn.textContent);
+      // where attaching event listener?
+
+    let taskDueDate = document.createElement("p");
+    taskDueDate = taskItem.dueDate.toString();
+    console.log(taskDueDate);
+
+    let taskComplete = document.createElement("input");
+    taskComplete.setAttribute("type", "checkbox");
+    taskComplete.setAttribute("name", "complete");
     // where attaching event listener?
 
-   let taskDueDate = document.createElement("p");
-   taskDueDate = taskObject.dueDate.toString();
-   console.log(taskDueDate);
-
-   let taskComplete = document.createElement("input");
-   taskComplete.setAttribute("type", "checkbox");
-   taskComplete.setAttribute("name", "complete");
-   // where attaching event listener?
-
-  taskListField.appendChild(taskComplete);
-  //taskListField.appendChild(taskDueDate);
-  taskListField.appendChild(editTaskNameBtn);
+    taskListField.appendChild(taskComplete);
+    //taskListField.appendChild(taskDueDate);
+    taskListField.appendChild(editTaskNameBtn);
 
    return taskListField;
    }
