@@ -31,22 +31,32 @@
 
  const TasksCreateObject = {
    taskBuilder(taskObject) {
-   let taskH4 = document.createElement("h4")
-   let taskName = document.createElement("span")
-   taskName.textContent = taskObject.task
+   let taskListField = document.createElement("fieldset");
+   taskListField.setAttribute("class", "listInRow");
+   
+   let editTaskNameBtn = document.createElement("button");
+   editTaskNameBtn.textContent = taskObject.task;
+   console.log(editTaskNameBtn.textContent);
+    // where attaching event listener?
 
-   let taskDueDate = document.createElement("span")
-   taskDueDate = taskObject.dueDate
+   let taskDueDate = document.createElement("p");
+   taskDueDate = taskObject.dueDate.toString();
+   console.log(taskDueDate);
 
-   let taskComplete = document.createElement("span")
-   taskComplete.value = taskObject.complete
+   let taskComplete = document.createElement("input");
+   taskComplete.setAttribute("type", "checkbox");
+   taskComplete.setAttribute("name", "complete");
+   // where attaching event listener?
 
-   taskH4.appendChild(taskName)
-   taskH4.appendChild(taskDueDate)
-   taskH4.appendChild(taskComplete)
+  taskListField.appendChild(taskComplete);
+  //taskListField.appendChild(taskDueDate);
+  taskListField.appendChild(editTaskNameBtn);
 
-   return taskH4
-   },
+   return taskListField;
+   }
+  }
+
+  export default TasksCreateObject
 //       // In order to change the data for an existing food item in our
 //       // API, we need to provide the user with a way to edit the
 //       // existing values. This means we will show the user a form with
@@ -57,9 +67,8 @@
 //       // that data, we can build the form, populate the input field
 //       // with our data form the GET request and then append that form
 //       // to the appropriate place on the DOM
-   editCompleteAndTask() {
-       let editFoodButton = document.createElement("button")
-//       editFoodButton.textContent = "Edit"
+  //editCompleteAndTaskName() {
+ 
 //       editFoodButton.addEventListener("click", () => {
 //         let articleId = event.target.parentNode.id
 //         let foodId = articleId.split("--")[1]
@@ -78,15 +87,11 @@
 //           foodList.fridgify()
 //         })
 //       })
-    
-  
 //       foodArticle.appendChild(foodName)
 //       foodArticle.appendChild(foodExp)
 //       foodArticle.appendChild(foodType)
 //       foodArticle.appendChild(editFoodButton)
 //       foodArticle.appendChild(deleteFoodButton)
-  
 //       return foodArticle
 //     }
-//   }
-//   export default TasksCreateObject
+// }
