@@ -7,7 +7,6 @@
 
     let taskListField = document.createElement("fieldset");
     taskListField.setAttribute("class", "listItemContainer");
-    
     let editTaskNameBtn = document.createElement("button");
     editTaskNameBtn.textContent = taskItem.task;
     console.log(editTaskNameBtn.textContent);
@@ -41,9 +40,8 @@
 //       // that data, we can build the form, populate the input field
 //       // with our data form the GET request and then append that form
 //       // to the appropriate place on the DOM
-  //editCompleteAndTaskName() {
- 
-//       editFoodButton.addEventListener("click", () => {
+//editCompleteAndTaskName() {
+  //       editFoodButton.addEventListener("click", () => {
 //         let articleId = event.target.parentNode.id
 //         let foodId = articleId.split("--")[1]
 //         foodCollection.getFood(foodId)

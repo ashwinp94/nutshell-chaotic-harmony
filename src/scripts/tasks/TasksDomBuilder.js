@@ -1,26 +1,42 @@
-// This module will build a 5-element form and append it to the DOM
-  // using createAndAppend Form()
-  // TasksList.createDomList() is called to show current list
-  // handleAddNew Task takes the user input and creates a new object
-  // It calls TaskFetch.postNewTask to POST
-  // Then calls TasksList.createDomList() to refresh incompleted tasks
+// 1. This module will build a 5-element form using
+//      createAndAppendForm() and append it to the DOM article
+//      with id="tasksOutput" in index.html
+// 2. A list of current tasks is created and appended to
+//      the DOM article with id="taskListOutput"in index.html
+// 2. To create a list of current tasks TasksList.createDomList()
+//      is called to show incomplete task list for current user
+// 3. createDomList() calls TasksFetch.getAllTasksById()and then
+//      does a forEach on fetch
+// 4. For each list item, getAllTasksById() calls
+//      TasksCreateObject.taskBuilder and returns the list object
+//      (taskListField)
+// 5. If the user adds a task, TasksDomBuilder.handleAddNewTask
+//      takes the user input and creates a new object
+//      Then it calls TaskFetch.postNewTask to POST
+//      Then it calls TasksList.createDomList() to refresh the
+//      list of tasks not yet completed
 
 import TasksFetch from "./TasksFetch"
 import TasksList from "./TasksList"
+import TasksCreateObject from "./TasksCreateObject"
 
 const TasksDomBuilder = {
-  
-  createAndAppendForm () {
+    createAndAppendForm () {
+// MAIN HEADER
+    let taskFormHeader = document.createElement("h1");
+    taskFormHeader.textContent = "TO DO LIST";
+    taskFormHeader.setAttribute("class", "main-header")
+
 // ADD TASKS HEADER
-    let taskFormHeader = document.createElement("h2");
-    taskFormHeader.textContent = "Add Tasks";
-    taskFormHeader.setAttribute("class", "header")
+    let taskAddHeader = document.createElement("h2");
+    taskAddHeader.textContent = "Add Tasks";
+    taskAddHeader.setAttribute("class", "header")
 
 // TASK
     let taskNameField = document.createElement("fieldset");
 
     let taskNameLabel = document.createElement("label");
-    taskNameLabel.textContent = "Task";
+    taskNameLabel.textContent = "Task:  ";
     taskNameLabel.setAttribute("for", "task");
 
     let taskNameInput = document.createElement("input");
@@ -34,6 +50,7 @@ const TasksDomBuilder = {
 
     let taskDueDateLabel = document.createElement("label");
     taskDueDateLabel.setAttribute("for", "dueDate");
+    taskDueDateLabel.textContent = "Date:  ";
 
     let taskDueDateInput = document.createElement("input");
     taskDueDateInput.setAttribute("id", "dueDate");
@@ -45,13 +62,11 @@ const TasksDomBuilder = {
 // CHECKBOX - Creating but not appending to DOM
     let inputComplete = document.createElement("input");
     inputComplete.setAttribute("type", "checkbox");
-    
-// SUBMIT BUTTON
+    // SUBMIT BUTTON
     let submitButton = document.createElement("button");
     submitButton.textContent = "Add Tasks";
-    submitButton.setAttribute("class", "task__save");
-
-// 2. Attach event listener to button in form
+    submitButton.setAttribute("class", "task__save btnClass");
+    // 2. Attach event listener to button in form
     submitButton.addEventListener("click", this.handleAddNewTask);
 
 // EDIT TASKS HEADER
@@ -61,21 +76,22 @@ const TasksDomBuilder = {
 
 // 3. Append the HTML form to the DOM
     let taskFormFragment = document.createDocumentFragment();
-    taskFormFragment.appendChild(taskFormHeader);
+    taskFormFragment.appendChild(taskFormHeader)
+    taskFormFragment.appendChild(taskAddHeader);
     taskFormFragment.appendChild(taskNameField);
     taskFormFragment.appendChild(taskDueDateField);
     taskFormFragment.appendChild(submitButton);
     taskFormFragment.appendChild(taskEditHeader);
 
-    TasksCreateObject.taskBuilder(taskItem);
-
     let taskFormArticle = document.querySelector("#tasksOutput");
     taskFormArticle.appendChild(taskFormFragment);
-    taskFormArticle.appendChild(taskListField);
-    
+
     console.log(taskFormArticle);
 
-    return taskFormArticle
+    TasksList.createDomList();
+    //taskFormFragment.appendChild(taskListField)
+
+    // return taskFormArticle
   },
 
   handleAddNewTask () {
@@ -110,14 +126,13 @@ const TasksDomBuilder = {
 // <button>task value</button>
 
 // Until we pass in a value
-let userId = "Colleen"
+let userId = 1;
     let newTask = {
       userId: userId,
       task: inputTaskName,
       dueDate: inputTaskDueDate,
       complete: inputComplete
     }
-    
     TasksFetch.postNewTask(newTask)
     .then(response => {
         TasksList.createDomList()

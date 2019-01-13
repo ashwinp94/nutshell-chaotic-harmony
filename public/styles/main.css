@@ -68,10 +68,18 @@ li a:active {
 	background-color:  #EBA63F;
 }
 
-.header {
-	
+.main-header{
+
 }
 
+.header {
+	padding-top: 15px;
+}
+
+.btnClass {
+	margin-top: 5px;
+	
+}
 
 .addContainer {
 	display: block;
@@ -80,9 +88,12 @@ li a:active {
 }
 .listItemContainer {
 	display: inline-block;
+	padding: 5px;
 }
 
 .editContainer {
-	padding-top: 170px;
+	display: flex;
+	flex-wrap: wrap; 
+	flex-direction: column;
 }
 	

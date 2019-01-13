@@ -51,7 +51,6 @@
 //         expiration: foodExpirationInput.value,
 //         type: foodTypeInput.value
 //       }
-      
 //       foodCollection.putExistingFood(foodObjToEdit.id, editedFood)
 //       .then(response => {
 //         foodList.fridgify()
