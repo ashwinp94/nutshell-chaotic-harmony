@@ -1,20 +1,75 @@
+//import messageForm from "./friendsScripts/MessageForm"
+import TasksDomBuilder from "./tasks/TasksDomBuilder"
+//mport EventsDOMBuilder from "./events/EventsDOMBuilder"
+import newsDomBuilder from "./news/newsDomBuilder"
+
+
 const NavBar = {
 	navBuilder() {
-		const navBarLocation = document.querySelector("#navOutput");
-		const navBar = document.createElement("article")
-		navBar.innerHTML = `
-		<nav>
-			<ul>
-				<li class="liOne"><a href="#">Home</a></li>
-				<li class="liTwo"><a href="/tasks/TasksDomBuilder.js">To-Do</a></li>
-				<li class="liThree"><a href="#" class="color3">Events</a></li>
-				<li class="liFour"><a href="#">News</a></li>
-				<li class="liFive"><a href="#">Logout</a></li>
-			</ul>
-		</nav>`;
-		console.log(navBar.innerHTML)
-		navBarLocation.appendChild(navBar)
-		}
-	}
+		const navBarContainer = document.querySelector("#navOutput");
+		let navBar = document.createElement("nav");
+		navBar.setAttribute("id", "navBar");
+		let navUl = document.createElement("ul");
+		
+		let liOne = document.createElement("li");
+		liOne.setAttribute("class", "liOne");
+		let linkOne = document.createElement("a");
+        linkOne.setAttribute("href", "#");
+        linkOne.textContent = "Home";
+        liOne.appendChild(linkOne);
+		//liOne.addEventListener("click", messageForm.createAndAppendInput);
+		
+		let liTwo = document.createElement("li");
+		liTwo.setAttribute("class", "liTwo");
+		let linkTwo = document.createElement("a");
+        linkTwo.setAttribute("href", "#");
+        linkTwo.textContent = "Tasks";
+        liTwo.appendChild(linkTwo);
+		liTwo.addEventListener("click", TasksDomBuilder.createAndAppendForm);
+		
+		let liThree = document.createElement("li");
+		liThree.setAttribute("class", "liThree");
+		let linkThree = document.createElement("a");
+        linkThree.setAttribute("href", "#");
+        linkThree.textContent = "Events";
+        liThree.appendChild(linkThree);
+		//liThree.addEventListener("click", eventsDomBuilder.createAndAppendForm);
+		
+		let liFour = document.createElement("li");
+		liFour.setAttribute("class", "liFour");
+		let linkFour = document.createElement("a");
+        linkFour.setAttribute("href", "#");
+        linkFour.textContent = "News";
+        liFour.appendChild(linkFour);
+        liFour.addEventListener("click", newsDomBuilder.addNewArticleForm);
+        
+		let liFive = document.createElement("li");
+		liFive.setAttribute("class", "liFive");
+		let linkFive = document.createElement("a");
+        linkFive.setAttribute("href", "#");
+        linkFive.textContent = "Logout";
+        liFive.appendChild(linkFive);
+        //liFive.addEventListener("click", logout);
 
+		navUl.appendChild(liOne);
+        navUl.appendChild(liTwo);
+        navUl.appendChild(liThree);
+        navUl.appendChild(liFour);
+        navUl.appendChild(liFive);        
+        navBar.appendChild(navUl);
+        navBarContainer.appendChild(navBar);
+    }
+}
 export default NavBar
+
+// navBar.innerHTML = `
+// 		<nav>
+// 			<ul>
+// 				<li class="liOne"><a href="#">Home</a></li>
+// 				<li class="liTwo"><a href="#./TasksDomBuilder/">Tasks</a></li>
+// 				<li class="liThree"><a href="#" class="color3">Events</a></li>
+// 				<li class="liFour"><a href="#">News</a></li>
+// 				<li class="liFive"><a href="#">Logout</a></li>
+// 			</ul>
+// 		</nav>`;
+// 		console.log(navBar.innerHTML)
