@@ -19,25 +19,29 @@
 //      Then it calls TasksList.createDomList() to refresh the
 //      list to show tasks not yet completed
 
+import NavBar from "../NavBar"
 import TasksFetch from "./TasksFetch"
 import TasksEditForm from "./TasksEditForm"
 import TasksList from "./TasksList"
 import TasksCreateObject from "./TasksCreateObject"
 
 const TasksDomBuilder = {
+
     createAndAppendForm () {
+        console.log("Hello from TasksDomBuilder.createAndAppendForm");
 // MAIN HEADER
     let taskFormHeader = document.createElement("h1");
     taskFormHeader.textContent = "TO DO LIST";
-    taskFormHeader.setAttribute("class", "main-header")
+    taskFormHeader.setAttribute("class", "headerH1")
 
 // ADD TASKS HEADER
     let taskAddHeader = document.createElement("h2");
     taskAddHeader.textContent = "Add Tasks";
-    taskAddHeader.setAttribute("class", "header")
+    taskAddHeader.setAttribute("class", "headerH2")
 
 // TASK
     let taskNameField = document.createElement("fieldset");
+    taskNameField.setAttribute("class", "listItemContainer")
 
     let taskNameLabel = document.createElement("label");
     taskNameLabel.textContent = "Task:  ";
@@ -77,10 +81,11 @@ const TasksDomBuilder = {
 // EDIT TASKS HEADER
     let taskEditHeader = document.createElement("h3");
     taskEditHeader.textContent = "Click to Edit Tasks";
-    taskEditHeader.setAttribute("class", "header");
+    taskEditHeader.setAttribute("class", "headerH3");
 
     let taskEditHeader2 = document.createElement("h4");
-    taskEditHeader2.textContent = "Check to Mark Complete";
+    taskEditHeader2.textContent = "Check Box to Mark Complete";
+    taskEditHeader.setAttribute("class", "headerH4");
 
 // 3. Append the HTML form to the DOM
     let taskFormFragment = document.createDocumentFragment();
@@ -93,6 +98,7 @@ const TasksDomBuilder = {
     taskFormFragment.appendChild(taskEditHeader2);
 
     let taskFormArticle = document.querySelector("#tasksOutput");
+    taskFormArticle.setAttribute("class", "addContainer");
     taskFormArticle.appendChild(taskFormFragment);
 
     console.log(taskFormArticle);

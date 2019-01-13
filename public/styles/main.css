@@ -68,27 +68,28 @@ li a:active {
 	background-color:  #EBA63F;
 }
 
-.main-header{
-
+.headerH1{
+	margin-top: 2px;
 }
 
-.header {
-	margin-top: 20px;
+.headerH2 {
+	margin-top: 2px;
+}
+
+.headerH3 {
+	margin-top: 2px;
+}
+
+.headerH4 {
+	margin-bottom: 2px;
 }
 
 .btnClass {
 	margin-top: 10px;
 	
 }
-
-.addContainer {
-	display: block;
-	margin-top: 70px;
-	
-}
 .listItemContainer {
-	display: inline-block;
-	
+	display: block;	
 }
 
 .listItem {
@@ -97,9 +98,17 @@ li a:active {
 	margin-top: 8px;
 }
 
+.addContainer {
+	margin-top: 70px;
+	display: flex;
+	flex-wrap: wrap; 
+	flex-direction: column;
+}
+
 .editContainer {
 	display: flex;
 	flex-wrap: wrap; 
 	flex-direction: column;
 }
+
 	

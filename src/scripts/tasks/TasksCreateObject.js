@@ -10,8 +10,8 @@ const TasksCreateObject = {
     taskArticle.setAttribute("id", `task--${taskItem.id}`)
     taskArticle.setAttribute("class", "listItemContainer")
 
-    let editTaskNameBtn = document.createElement("input");
-    editTaskNameBtn.value = taskItem.task;
+    let editTaskNameBtn = document.createElement("button");
+    editTaskNameBtn.textContent = taskItem.task;
     console.log(editTaskNameBtn.textContent);
     editTaskNameBtn.addEventListener("click", () => {
       let articleId = event.target.parentNode.id;
@@ -55,14 +55,13 @@ TasksFetch.putExistingTask(taskItem, editedTask)
   TasksList.createDomList()
   })
 })  
-      })
-    })
+      
 
-    taskArticle.appendChild(taskDueDate);
-    taskArticle.appendChild(taskComplete);
-    taskArticle.appendChild(editTaskNameBtn);
+  taskArticle.appendChild(taskDueDate);
+  taskArticle.appendChild(taskComplete);
+  taskArticle.appendChild(editTaskNameBtn);
 
-    return taskArticle;
+  return taskArticle;
    }   
   }
 
