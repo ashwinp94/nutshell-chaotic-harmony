@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Login from "./Login"
 import Data from "./UserData"
 
@@ -114,7 +113,6 @@ Login.testEvent()
 
 
 
-=======
 
 // NAVBAR
 import NavBar from "./NavBar"
@@ -153,4 +151,3 @@ TasksDomBuilder.createAndAppendForm()
 // NEWS
 newsDomBuilder.addNewArticleForm()
 newsList.newshtmlappending()
->>>>>>> master
