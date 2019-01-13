@@ -28,34 +28,6 @@ import TasksCreateObject from "./TasksCreateObject"
 const TasksDomBuilder = {
     
     createAndAppendForm() {
-        
-    console.log("Hello from TasksDomBuilder.createAndAppendForm");
-      let clearHtmlDiv = document.querySelector("#pageDiv");
-      let clearHtmlSection = document.querySelector("#clearSection");
-
-      let chatHeader = document.querySelector("#chatHeader");
-      chatHeader.innerHTML = ``;
-      clearHtmlSection.appendChild(chatHeader);
-      let messagesOutput = document.querySelector("#messagesOutput");
-      messagesOutput.innerHTML = ``;
-      clearHtmlSection.appendChild(messagesOutput);
-      let messagesInput = document.querySelector("#messagesInput");
-      messagesInput.innerHTML = ``;
-      clearHtmlSection.appendChild(messagesInput);
-      let newsOutput = document.querySelector("#newsOutput");
-      newsOutput.innerHTML = ``;
-      clearHtmlSection.appendChild(newsOutput);
-      let friendsOutput = document.querySelector("#friendsOutput");
-      friendsOutput.innerHTML = ``;
-      clearHtmlSection.appendChild(friendsOutput);
-      let tasksOutput = document.querySelector("#tasksOutput");
-      tasksOutput.innerHTML = ``;
-      clearHtmlSection.appendChild(tasksOutput);
-      let  = document.querySelector("#taskListOutput");
-      taskListOutput.innerHTML = ``;
-      clearHtmlSection.appendChild(taskListOutput);
-
-      clearHtmlDiv.appendChild(clearHtmlSection);
 // MAIN HEADER
     let taskFormHeader = document.createElement("h1");
     taskFormHeader.textContent = "TO DO LIST";
@@ -107,7 +79,7 @@ const TasksDomBuilder = {
 
 // EDIT TASKS HEADER
     let taskEditHeader = document.createElement("h3");
-    taskEditHeader.textContent = "Click to Edit Tasks";
+    taskEditHeader.textContent = "Click Task to Edit";
     taskEditHeader.setAttribute("class", "headerH3");
 
     let taskEditHeader2 = document.createElement("h4");
