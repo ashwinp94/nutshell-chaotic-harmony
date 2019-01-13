@@ -2,46 +2,38 @@ import TasksFetch from "./TasksFetch"
 import TasksList from "./TasksList"
 
 const TasksEditForm = {
-  createAndAppendForm (articleId, taskObjectToEdit) {
-    let taskNameField = document.createElement("fieldset");
-    taskNameField.setAttribute("id", "editClass")
-
+  createAndAppendForm (articleId, taskItem) {
+    let taskNameField = document.createElement("p");
+    taskNameField.setAttribute("id", "listItem");
     let taskNameLabel = document.createElement("label");
-    taskNameLabel.textContent = "Task:  ";
-    taskNameLabel.setAttribute("for", "task");
+    taskNameLabel.textContent = "Edit Task:         ";
+    taskNameLabel.setAttribute("class", "listItem")
 
     let taskNameInput = document.createElement("input");
-    taskNameInput.setAttribute("id", "task");
-    taskNameInput.setAttribute("name", "task");
+    taskNameInput.textContent = taskItem.task;
+
     taskNameField.appendChild(taskNameLabel);
     taskNameField.appendChild(taskNameInput);
-
-    let updateButton = document.createElement("button");
-    updateButton.textContent = "Update";
-    updateButton.setAttribute("class", "task__edit btnClass");
-    // 2. Attach event listener to button in form
-    updateButton.addEventListener("click", () => {
-        let editedTask = {
-            task: taskNameInput.value
+    
+    taskNameInput.addEventListener("keycode", event => {
+        let x = event.keyCode;
+        if (x === 13) {
+            let editedTask = {
+                task: taskNameInput.value
+            }
         }
 
-    TasksFetch.putExistingTask()
+    TasksFetch.putExistingTask(taskItem, editedTask)
         .then(response => {
         TasksList.createDomList()
         })
-    })
+    })    
 
-    let taskFormFragment = document.createDocumentFragment();
-    taskFormFragment.appendChild(taskNameField);
-    taskFormFragment.appendChild(updateButton);
-
-    let taskFormArticle = document.querySelector("#tasksOutput");
-    taskFormArticle.appendChild(taskFormFragment);
+    let taskFormArticle = document.querySelector(`#${articleId}`);
+    taskFormArticle.appendChild(taskNameField);
 
     console.log(taskFormArticle);
-
-    return taskFormArticle
-  }
+    }
 }
 
 export default TasksEditForm

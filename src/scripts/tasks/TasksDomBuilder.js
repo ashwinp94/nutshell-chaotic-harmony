@@ -20,6 +20,7 @@
 //      list to show tasks not yet completed
 
 import TasksFetch from "./TasksFetch"
+import TasksEditForm from "./TasksEditForm"
 import TasksList from "./TasksList"
 import TasksCreateObject from "./TasksCreateObject"
 
@@ -78,6 +79,9 @@ const TasksDomBuilder = {
     taskEditHeader.textContent = "Click to Edit Tasks";
     taskEditHeader.setAttribute("class", "header");
 
+    let taskEditHeader2 = document.createElement("h4");
+    taskEditHeader2.textContent = "Check to Mark Complete";
+
 // 3. Append the HTML form to the DOM
     let taskFormFragment = document.createDocumentFragment();
     taskFormFragment.appendChild(taskFormHeader);
@@ -86,6 +90,7 @@ const TasksDomBuilder = {
     taskFormFragment.appendChild(taskDueDateField);
     taskFormFragment.appendChild(submitButton);
     taskFormFragment.appendChild(taskEditHeader);
+    taskFormFragment.appendChild(taskEditHeader2);
 
     let taskFormArticle = document.querySelector("#tasksOutput");
     taskFormArticle.appendChild(taskFormFragment);

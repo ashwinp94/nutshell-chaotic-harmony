@@ -73,22 +73,28 @@ li a:active {
 }
 
 .header {
-	padding-top: 15px;
+	margin-top: 20px;
 }
 
 .btnClass {
-	margin-top: 5px;
+	margin-top: 10px;
 	
 }
 
 .addContainer {
 	display: block;
-	padding-top: 70px;
+	margin-top: 70px;
 	
 }
 .listItemContainer {
 	display: inline-block;
-	padding: 5px;
+	
+}
+
+.listItem {
+	display: inline-block;
+	margin-right: 8px;
+	margin-top: 8px;
 }
 
 .editContainer {
