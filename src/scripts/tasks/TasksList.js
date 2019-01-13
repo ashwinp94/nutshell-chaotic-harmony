@@ -20,11 +20,11 @@ const userId = 1;
 
       //This while loop essentially removes all child nodes of an element
       //until the element has no child nodes left. It is equivalent to the
-      //following: outputArticle.innerHTML = "" - If we don't do this,
+      //following: outputArticle.innerHTML = "" - Otherwise,
       //each time a new task is added using the form, all the tasks
       //will be appended again to the bottom of the list.
       //Essentially, it clears the output container (article tag with
-      //id taskOutput before repopulating it.
+      //id taskListOutput) before repopulating it.
       while (outputArticle.firstChild) {
         outputArticle.removeChild(outputArticle.firstChild);
       }

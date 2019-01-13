@@ -1,69 +1,44 @@
- import TasksFetch from "./TasksFetch"
- import TasksList from "./TasksList"
- import TasksEditForm from "./TasksEditForm"
+import TasksFetch from "./TasksFetch"
+import TasksEditForm from "./TasksEditForm"
 
- const TasksCreateObject = {
+const TasksCreateObject = {
    taskBuilder(taskItem) {
+
+    let taskArticle = document.createElement("article")
+    taskArticle.setAttribute("id", `task--${taskItem.id}`)
 
     let taskListField = document.createElement("fieldset");
     taskListField.setAttribute("class", "listItemContainer");
+    
     let editTaskNameBtn = document.createElement("button");
     editTaskNameBtn.textContent = taskItem.task;
     console.log(editTaskNameBtn.textContent);
-      // where attaching event listener?
+    editTaskNameBtn.addEventListener("click", () => {
+      let articleId = event.target.parentNode.id;
+      let taskId = articleId.split("--")[1]
+      TasksFetch.getAllTasksById(taskId)
+      .then(response => {
+        TasksEditForm.createAndAppendForm(articleId, response)
+      })
+    })
 
-    let taskDueDate = document.createElement("p");
-    taskDueDate = taskItem.dueDate.toString();
+    let taskDueDate = document.createElement("label");
+    taskDueDate.textContent = taskItem.dueDate.toString() + "  ";
+    taskDueDate.setAttribute("class", "dateListItem")
     console.log(taskDueDate);
 
     let taskComplete = document.createElement("input");
     taskComplete.setAttribute("type", "checkbox");
     taskComplete.setAttribute("name", "complete");
-    // where attaching event listener?
+    taskComplete.value = taskItem.complete;
+    taskComplete.addEventListener("click", this.handleEditComplete);
 
+    taskListField.appendChild(taskDueDate);
     taskListField.appendChild(taskComplete);
-    //taskListField.appendChild(taskDueDate);
     taskListField.appendChild(editTaskNameBtn);
 
-   return taskListField;
-   }
+    return taskListField;
+   }   
   }
 
   export default TasksCreateObject
-//       // In order to change the data for an existing food item in our
-//       // API, we need to provide the user with a way to edit the
-//       // existing values. This means we will show the user a form with
-//       // the existing values already populated. Once again, we want our
-//       // data to be our point of truth. So we make a HTTP GET request
-//       // targeting the specific food item the user wants to edit to
-//       // get the data that will be populated in the form. Once we have
-//       // that data, we can build the form, populate the input field
-//       // with our data form the GET request and then append that form
-//       // to the appropriate place on the DOM
-//editCompleteAndTaskName() {
-  //       editFoodButton.addEventListener("click", () => {
-//         let articleId = event.target.parentNode.id
-//         let foodId = articleId.split("--")[1]
-//         foodCollection.getFood(foodId)
-//         .then(response => {
-//           foodEditForm.createAndAppendForm(articleId, response)
-//         })
-//       })
-//       // Since we can get the id of the food item to be deleted from the parent element(the article element), we can use that to make an HTTP DELETE request to our API. Once again after this we want to get the list of food items from the API using a HTTP GET request and display it to the user so that the user does not have to refresh the page in order to see that the item they deleted has actually been deleted.
-//       let deleteFoodButton = document.createElement("button")
-//       deleteFoodButton.textContent = "Delete"
-//       deleteFoodButton.addEventListener("click", () => {
-//         let foodId = event.target.parentNode.id.split("--")[1]
-//         foodCollection.deleteFood(foodId)
-//         .then(response => {
-//           foodList.fridgify()
-//         })
-//       })
-//       foodArticle.appendChild(foodName)
-//       foodArticle.appendChild(foodExp)
-//       foodArticle.appendChild(foodType)
-//       foodArticle.appendChild(editFoodButton)
-//       foodArticle.appendChild(deleteFoodButton)
-//       return foodArticle
-//     }
-// }

@@ -1,20 +1,23 @@
-// 1. This module will build a 5-element form using
-//      createAndAppendForm() and append it to the DOM article
-//      with id="tasksOutput" in index.html
+// 1. A 7-element form is created and appended to the DOM
+//      article with id="tasksOutput" in index.html
+//      (createAndAppendForm())
 // 2. A list of current tasks is created and appended to
 //      the DOM article with id="taskListOutput"in index.html
-// 2. To create a list of current tasks TasksList.createDomList()
-//      is called to show incomplete task list for current user
-// 3. createDomList() calls TasksFetch.getAllTasksById()and then
-//      does a forEach on fetch
-// 4. For each list item, getAllTasksById() calls
+// ***** Stretch goal - Order the tasks by date
+// 2. To create a list of current tasks for the currrent user
+//       TasksList.createDomList() is called
+// 3. TaskList.createDomList() calls TasksFetch.getAllTasksById()
+//      for users matching the current userId and for complete = unchecked
+//      Then the function does a forEach on the fetch
+//  ***** Stretch goal would be adding option to show completed tasks
+// 4. For each list item, TaskFetch.getAllTasksById() calls
 //      TasksCreateObject.taskBuilder and returns the list object
 //      (taskListField)
 // 5. If the user adds a task, TasksDomBuilder.handleAddNewTask
 //      takes the user input and creates a new object
 //      Then it calls TaskFetch.postNewTask to POST
 //      Then it calls TasksList.createDomList() to refresh the
-//      list of tasks not yet completed
+//      list to show tasks not yet completed
 
 import TasksFetch from "./TasksFetch"
 import TasksList from "./TasksList"
@@ -60,9 +63,10 @@ const TasksDomBuilder = {
     taskDueDateField.appendChild(taskDueDateInput);
 
 // CHECKBOX - Creating but not appending to DOM
-    let inputComplete = document.createElement("input");
-    inputComplete.setAttribute("type", "checkbox");
-    // SUBMIT BUTTON
+   // let inputComplete = document.createElement("input");
+    //inputComplete.setAttribute("type", "checkbox");
+
+// SUBMIT BUTTON
     let submitButton = document.createElement("button");
     submitButton.textContent = "Add Tasks";
     submitButton.setAttribute("class", "task__save btnClass");
@@ -70,13 +74,13 @@ const TasksDomBuilder = {
     submitButton.addEventListener("click", this.handleAddNewTask);
 
 // EDIT TASKS HEADER
-    let taskEditHeader = document.createElement("h2");
-    taskEditHeader.textContent = "Edit Tasks";
+    let taskEditHeader = document.createElement("h3");
+    taskEditHeader.textContent = "Click to Edit Tasks";
     taskEditHeader.setAttribute("class", "header");
 
 // 3. Append the HTML form to the DOM
     let taskFormFragment = document.createDocumentFragment();
-    taskFormFragment.appendChild(taskFormHeader)
+    taskFormFragment.appendChild(taskFormHeader);
     taskFormFragment.appendChild(taskAddHeader);
     taskFormFragment.appendChild(taskNameField);
     taskFormFragment.appendChild(taskDueDateField);
@@ -87,43 +91,21 @@ const TasksDomBuilder = {
     taskFormArticle.appendChild(taskFormFragment);
 
     console.log(taskFormArticle);
-
     TasksList.createDomList();
-    //taskFormFragment.appendChild(taskListField)
+    },    
 
-    // return taskFormArticle
-  },
-
-  handleAddNewTask () {
+  handleAddNewTask() {
     let inputTaskName = document.querySelector("#task").value
     let inputTaskDueDate = document.querySelector("#dueDate").value
     let inputComplete = "unchecked";
-    // (if the checkbox is not checked, no information is sent)
-
-// "tasks": [ {
-//       "id": 1,
-//       "userId": 1,
-//       "task": "Take out garbage",
-//       "dueDate": "12/12/2018",
-//       "complete": "" - attribute: is checked - value = "checked"?
-//   }  ],
-
-// <article>
-// <h1>Task List</h1>
-// <h2>Click to Edit or Check Complete</h2><br>
-
-// <br><br>
-// <h2>Add New Task</h2>
-// <label for="dueDate">Due Date</label><br>
-// <input type="date" name="dueDate" id="dueDate">
-// <label for"task">Task</label><br>
-// <input type="text" name="task">
-// </article>
-
-// List of Tasks produced by looping thru array - Call taskList
-// <span class="spanClass"><input type="checkbox" name="complete" value="false">
-// <p>dueDate value</p>
-// <button>task value</button>
+    
+        // "tasks": [ {
+        //       "id": 1,
+        //       "userId": 1,
+        //       "task": "Take out garbage",
+        //       "dueDate": "12/12/2018",
+        //       "complete": "" - attribute: is checked - value = "checked"?
+        //   }  ],
 
 // Until we pass in a value
 let userId = 1;
@@ -137,7 +119,7 @@ let userId = 1;
     .then(response => {
         TasksList.createDomList()
     })
-  }
+},
 }
 
 export default TasksDomBuilder
