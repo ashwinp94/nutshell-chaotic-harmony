@@ -1,4 +1,4 @@
-//import messageForm from "./friendsScripts/MessageForm"
+import messageForm from "./friendsScripts/MessageForm"
 import TasksDomBuilder from "./tasks/TasksDomBuilder"
 //mport EventsDOMBuilder from "./events/EventsDOMBuilder"
 import newsDomBuilder from "./news/newsDomBuilder"
@@ -17,7 +17,7 @@ const NavBar = {
         linkOne.setAttribute("href", "#");
         linkOne.textContent = "Home";
         liOne.appendChild(linkOne);
-		//liOne.addEventListener("click", messageForm.createAndAppendInput);
+		liOne.addEventListener("click", messageForm.createAndAppendInput);
 		
 		let liTwo = document.createElement("li");
 		liTwo.setAttribute("class", "liTwo");

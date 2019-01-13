@@ -10,7 +10,7 @@ import messageList from "./friendsScripts/list"
 import messageForm from "./friendsScripts/domBuilder"
 
 // TASKS
-import TasksDomBuilder from "./tasks/TasksDomBuilder"
+import  TasksDomBuilder from "./tasks/TasksDomBuilder"
 import TasksList from "./tasks/TasksList"
 
 // NEWS
@@ -23,24 +23,25 @@ import newsList from "./news/newsList"
 // *********************
 
 // LOGIN
-Data.getData()
-Login.appendLogin();
-Login.signUp()
-Login.testEvent()
+//Data.getData()
+//Login.appendLogin();
+//Login.signUp()
+//Login.testEvent()
 
 // NAVBAR
 NavBar.navBuilder();
 
 // CHAT
-messageForm.createChatHeader();
-messageList.chatify();
-messageForm.createAndAppendInput();
+//messageForm.createChatHeader();
+//messageList.chatify();
+//messageForm.createAndAppendInput();
 
 // TASKS
-TasksDomBuilder.createAndAppendForm();
-TasksList.createDomList();
+//TasksDomBuilder.createAndAppendForm();
+
+
 // NEWS
-newsDomBuilder.addNewArticleForm();
-newsList.newshtmlappending();
+//newsDomBuilder.addNewArticleForm();
+//newsList.newshtmlappending();
 
 // EVENTS

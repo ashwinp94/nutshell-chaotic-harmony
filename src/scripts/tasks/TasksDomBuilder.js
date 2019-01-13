@@ -26,22 +26,49 @@ import TasksList from "./TasksList"
 import TasksCreateObject from "./TasksCreateObject"
 
 const TasksDomBuilder = {
+    
+    createAndAppendForm() {
+        
+    console.log("Hello from TasksDomBuilder.createAndAppendForm");
+      let clearHtmlDiv = document.querySelector("#pageDiv");
+      let clearHtmlSection = document.querySelector("#clearSection");
 
-    createAndAppendForm () {
-        console.log("Hello from TasksDomBuilder.createAndAppendForm");
+      let chatHeader = document.querySelector("#chatHeader");
+      chatHeader.innerHTML = ``;
+      clearHtmlSection.appendChild(chatHeader);
+      let messagesOutput = document.querySelector("#messagesOutput");
+      messagesOutput.innerHTML = ``;
+      clearHtmlSection.appendChild(messagesOutput);
+      let messagesInput = document.querySelector("#messagesInput");
+      messagesInput.innerHTML = ``;
+      clearHtmlSection.appendChild(messagesInput);
+      let newsOutput = document.querySelector("#newsOutput");
+      newsOutput.innerHTML = ``;
+      clearHtmlSection.appendChild(newsOutput);
+      let friendsOutput = document.querySelector("#friendsOutput");
+      friendsOutput.innerHTML = ``;
+      clearHtmlSection.appendChild(friendsOutput);
+      let tasksOutput = document.querySelector("#tasksOutput");
+      tasksOutput.innerHTML = ``;
+      clearHtmlSection.appendChild(tasksOutput);
+      let  = document.querySelector("#taskListOutput");
+      taskListOutput.innerHTML = ``;
+      clearHtmlSection.appendChild(taskListOutput);
+
+      clearHtmlDiv.appendChild(clearHtmlSection);
 // MAIN HEADER
     let taskFormHeader = document.createElement("h1");
     taskFormHeader.textContent = "TO DO LIST";
-    taskFormHeader.setAttribute("class", "headerH1")
+    taskFormHeader.setAttribute("class", "headerH1");
 
 // ADD TASKS HEADER
     let taskAddHeader = document.createElement("h2");
     taskAddHeader.textContent = "Add Tasks";
-    taskAddHeader.setAttribute("class", "headerH2")
+    taskAddHeader.setAttribute("class", "headerH2");
 
 // TASK
     let taskNameField = document.createElement("fieldset");
-    taskNameField.setAttribute("class", "listItemContainer")
+    taskNameField.setAttribute("class", "listItemContainer");
 
     let taskNameLabel = document.createElement("label");
     taskNameLabel.textContent = "Task:  ";
@@ -85,7 +112,7 @@ const TasksDomBuilder = {
 
     let taskEditHeader2 = document.createElement("h4");
     taskEditHeader2.textContent = "Check Box to Mark Complete";
-    taskEditHeader.setAttribute("class", "headerH4");
+    taskEditHeader2.setAttribute("class", "headerH4");
 
 // 3. Append the HTML form to the DOM
     let taskFormFragment = document.createDocumentFragment();
