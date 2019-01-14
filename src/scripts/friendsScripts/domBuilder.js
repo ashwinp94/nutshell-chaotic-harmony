@@ -46,7 +46,7 @@ const messageForm = {
             time: currentTime,
         }
         messageCollection.postAllMessages(newMessage)
-        .then(reaponse =>{
+        .then(response =>{
             messageList.chatify();
         })
     }
