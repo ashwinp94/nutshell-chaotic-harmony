@@ -1,16 +1,16 @@
-<<<<<<< HEAD
-import Login from "./Login"
-import Data from "./UserData"
-
+import Login from "./LoginScripts/Login"
+import Data from "./LoginScripts/UserData"
+import NaVBar from "./tasks/NavBar"
 
 Data.getData()
 Login.appendLogin();
 Login.signUp()
 Login.testEvent()
 
+Login.registerUser()
 
 
-
+NaVBar.navBuilder()
 
 
 
@@ -114,43 +114,68 @@ Login.testEvent()
 
 
 
-=======
+
+// // NAVBAR
+// import NavBar from "./tasks/NavBar"
+// LOGIN
+import Login from "./Login"
+import Data from "./UserData"
 
 // NAVBAR
 import NavBar from "./NavBar"
 
-// CHAT
-import messageList from "./friendsScripts/list"
-import messageForm from "./friendsScripts/domBuilder"
+// // CHAT
+// import messageList from "./friendsScripts/list"
+// import messageForm from "./friendsScripts/domBuilder"
 
 // TASKS
-import TasksCreateObject from ".tasks/TasksCreateObject"
-import TasksDomBuilder from ".tasks/TasksDomBuilder"
-import TasksEditForm from ".tasks/TasksEdit Form"
-import TasksFetch from ".tasks/TasksFetch"
-import TasksList from ".tasks/TasksList"
+import  TasksDomBuilder from "./tasks/TasksDomBuilder"
+import TasksList from "./tasks/TasksList"
 
-// NEWS
-import newsDomBuilder from "./news/newsDomBuilder"
-import newsList from "./news/newsList"
+// // NEWS
+// import newsDomBuilder from "./news/newsDomBuilder"
+// import newsList from "./news/newsList"
 
-// EVENTS
+// // EVENTS
 
 
-// *********************
+// // *********************
+
+// // NAVBAR
+// NavBar.navBuilder();
+
+// // CHAT
+// messageForm.createChatHeader();
+// messageList.chatify();
+// messageForm.createAndAppendInput();
+
+// // TASKS
+// TasksDomBuilder.createAndAppendForm()
+
+// // NEWS
+// newsDomBuilder.addNewArticleForm()
+// newsList.newshtmlappending()
+// LOGIN
+//Data.getData()
+//Login.appendLogin();
+//Login.signUp()
+//Login.testEvent()
 
 // NAVBAR
 NavBar.navBuilder();
 
 // CHAT
-messageForm.createChatHeader();
-messageList.chatify();
-messageForm.createAndAppendInput();
+//messageForm.createChatHeader();
+//messageList.chatify();
+//messageForm.createAndAppendInput();
 
 // TASKS
-TasksDomBuilder.createAndAppendForm()
+//TasksDomBuilder.createAndAppendForm();
+//TasksList.createDomList
+
 
 // NEWS
-newsDomBuilder.addNewArticleForm()
-newsList.newshtmlappending()
->>>>>>> master
+//newsDomBuilder.addNewArticleForm();
+//newsList.newshtmlappending();
+
+// EVENTS

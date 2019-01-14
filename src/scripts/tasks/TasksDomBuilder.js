@@ -1,34 +1,145 @@
+<<<<<<< HEAD
+// import TasksFetch from "./TasksFetch"
+// import TasksList from "./TasksList"
+
+// const TasksDomBuilder = {
+
+//   // This module will build a form and append it to the DOM.
+//   // The form will contain input fields for a user to add a new task
+//   // to the to do list
+//   createAndAppendForm () {
+// // HEADER
+//     let taskFormHeader = document.createElement("h1");
+//     taskFormHeader.textContent = "Add Tasks";
+
+// // TASK
+//     let taskNameField = document.createElement("fieldset");
+
+//     let taskNameLabel = document.createElement("label");
+//     taskNameLabel.textContent = "Task";
+//     taskNameLabel.setAttribute("for", "task");
+=======
+// 1. A 7-element form is created and appended to the DOM
+//      article with id="tasksOutput" in index.html
+//      (createAndAppendForm())
+// 2. A list of current tasks is created and appended to
+//      the DOM article with id="taskListOutput"in index.html
+// ***** Stretch goal - Order the tasks by date
+// 2. To create a list of current tasks for the currrent user
+//       TasksList.createDomList() is called
+// 3. TaskList.createDomList() calls TasksFetch.getAllTasksById()
+//      for users matching the current userId and for complete = unchecked
+//      Then the function does a forEach on the fetch
+//  ***** Stretch goal would be adding option to show completed tasks
+// 4. For each list item, TaskFetch.getAllTasksById() calls
+//      TasksCreateObject.taskBuilder and returns the list object
+//      (taskListField)
+// 5. If the user adds a task, TasksDomBuilder.handleAddNewTask
+//      takes the user input and creates a new object
+//      Then it calls TaskFetch.postNewTask to POST
+//      Then it calls TasksList.createDomList() to refresh the
+//      list to show tasks not yet completed
+
+import NavBar from "../NavBar"
 import TasksFetch from "./TasksFetch"
+import TasksEditForm from "./TasksEditForm"
 import TasksList from "./TasksList"
+import TasksCreateObject from "./TasksCreateObject"
 
 const TasksDomBuilder = {
-
-  // This module will build a form and append it to the DOM.
-  // The form will contain input fields for a user to add a new task
-  // to the to do list
-  createAndAppendForm () {
-// HEADER
+    
+    createAndAppendForm() {
+// MAIN HEADER
     let taskFormHeader = document.createElement("h1");
-    taskFormHeader.textContent = "Add Tasks";
+    taskFormHeader.textContent = "TO DO LIST";
+    taskFormHeader.setAttribute("class", "headerH1");
+
+// ADD TASKS HEADER
+    let taskAddHeader = document.createElement("h2");
+    taskAddHeader.textContent = "Add Tasks";
+    taskAddHeader.setAttribute("class", "headerH2");
 
 // TASK
     let taskNameField = document.createElement("fieldset");
+    taskNameField.setAttribute("class", "listItemContainer");
 
     let taskNameLabel = document.createElement("label");
-    taskNameLabel.textContent = "Task";
+    taskNameLabel.textContent = "Task:  ";
     taskNameLabel.setAttribute("for", "task");
+>>>>>>> origin
 
-    let taskNameInput = document.createElement("input");
-    taskNameInput.setAttribute("id", "task");
-    taskNameInput.setAttribute("name", "task");
-    taskNameField.appendChild(taskNameLabel);
-    taskNameField.appendChild(taskNameInput);
+//     let taskNameInput = document.createElement("input");
+//     taskNameInput.setAttribute("id", "task");
+//     taskNameInput.setAttribute("name", "task");
+//     taskNameField.appendChild(taskNameLabel);
+//     taskNameField.appendChild(taskNameInput);
 
-// DUE DATE
-    let taskDueDateField = document.createElement("fieldset");
+// // DUE DATE
+//     let taskDueDateField = document.createElement("fieldset");
 
+<<<<<<< HEAD
+//     let taskDueDateLabel = document.createElement("label");
+//     taskDueDateLabel.setAttribute("for", "dueDate");
+
+//     let taskDueDateInput = document.createElement("input");
+//     taskDueDateInput.setAttribute("id", "dueDate");
+//     taskDueDateInput.setAttribute("type", "date");
+//     taskDueDateInput.setAttribute("name", "dueDate");
+//     taskDueDateField.appendChild(taskDueDateLabel);
+//     taskDueDateField.appendChild(taskDueDateInput);
+// // SUBMIT BUTTON
+//     let submitButton = document.createElement("button");
+//     submitButton.textContent = "Add Tasks";
+//     submitButton.setAttribute("class", "task__save");
+
+// // 2. Attach event listener to button in form
+//     submitButton.addEventListener("click", this.handleAddNewTask);
+
+// // 3. Append the HTML form to the DOM
+//     let taskFormFragment = document.createDocumentFragment();
+//     taskFormFragment.appendChild(taskFormHeader);
+//     taskFormFragment.appendChild(taskNameField);
+//     taskFormFragment.appendChild(taskDueDateField);
+//     taskFormFragment.appendChild(submitButton);
+
+//     let taskFormArticle = document.querySelector("#tasksOutput");
+//     taskFormArticle.appendChild(taskFormFragment);
+//     console.log(taskFormArticle)
+//   },
+  
+//   handleAddNewTask () {
+//     let inputTaskName = document.querySelector("#task").value
+//     let inputTaskDueDate = document.querySelector("#dueDate").value
+//     let inputComplete = false;
+
+//     // "tasks": [ {
+//     //       "id": 1,
+//     //       "userId": 1,
+//     //       "task": "Take out garbage",
+//     //       "dueDate": "12/12/2018",
+//     //       "complete": "false"
+//     //   }  ],
+
+// // Until we pass in a value
+// let userId = "Colleen"
+//     let newTask = {
+//       userId: userId,
+//       task: inputTaskName,
+//       dueDate: inputTaskDueDate,
+//       complete: inputComplete
+//     }
+
+    
+//     TasksFetch.postNewTask(newTask)
+//     .then(response => {
+//       TasksList.createDomList()
+//     })
+//   }
+// }
+=======
     let taskDueDateLabel = document.createElement("label");
     taskDueDateLabel.setAttribute("for", "dueDate");
+    taskDueDateLabel.textContent = "Date:  ";
 
     let taskDueDateInput = document.createElement("input");
     taskDueDateInput.setAttribute("id", "dueDate");
@@ -36,54 +147,83 @@ const TasksDomBuilder = {
     taskDueDateInput.setAttribute("name", "dueDate");
     taskDueDateField.appendChild(taskDueDateLabel);
     taskDueDateField.appendChild(taskDueDateInput);
+
+// CHECKBOX - Creating but not appending to DOM
+   // let inputComplete = document.createElement("input");
+    //inputComplete.setAttribute("type", "checkbox");
+
 // SUBMIT BUTTON
     let submitButton = document.createElement("button");
     submitButton.textContent = "Add Tasks";
-    submitButton.setAttribute("class", "task__save");
-
-// 2. Attach event listener to button in form
+    submitButton.setAttribute("class", "task__save btnClass");
+    // 2. Attach event listener to button in form
     submitButton.addEventListener("click", this.handleAddNewTask);
+
+// EDIT TASKS HEADER
+    let taskEditHeader = document.createElement("h3");
+    taskEditHeader.textContent = "Click Task to Edit";
+    taskEditHeader.setAttribute("class", "headerH3");
+
+    let taskEditHeader2 = document.createElement("h4");
+    taskEditHeader2.textContent = "Check Box to Mark Complete";
+    taskEditHeader2.setAttribute("class", "headerH4");
 
 // 3. Append the HTML form to the DOM
     let taskFormFragment = document.createDocumentFragment();
     taskFormFragment.appendChild(taskFormHeader);
+    taskFormFragment.appendChild(taskAddHeader);
     taskFormFragment.appendChild(taskNameField);
     taskFormFragment.appendChild(taskDueDateField);
     taskFormFragment.appendChild(submitButton);
+    taskFormFragment.appendChild(taskEditHeader);
+    taskFormFragment.appendChild(taskEditHeader2);
 
     let taskFormArticle = document.querySelector("#tasksOutput");
+    taskFormArticle.setAttribute("class", "addContainer");
     taskFormArticle.appendChild(taskFormFragment);
-    console.log(taskFormArticle)
-  },
+
+    console.log(taskFormArticle);
+    TasksList.createDomList();
+    },
+    
+    clearDom() {
+        console.log("Hello from TasksDomBuilder.clearDom");
+        let clearHtmlDiv = document.querySelector("#pageDiv");
+        let clearHtmlSection = document.querySelector("#clearSection");
+        clearHtmlSection.innerHTML = `
+          <article id="tasksOutput"></article>
+          <article id="taskListOutput"></article>`;
+        clearHtmlDiv.appendChild(clearHtmlSection);
+      },
   
-  handleAddNewTask () {
+
+  handleAddNewTask() {
     let inputTaskName = document.querySelector("#task").value
     let inputTaskDueDate = document.querySelector("#dueDate").value
-    let inputComplete = false;
-
-    // "tasks": [ {
-    //       "id": 1,
-    //       "userId": 1,
-    //       "task": "Take out garbage",
-    //       "dueDate": "12/12/2018",
-    //       "complete": "false"
-    //   }  ],
+    let inputComplete = "unchecked";
+    
+        // "tasks": [ {
+        //       "id": 1,
+        //       "userId": 1,
+        //       "task": "Take out garbage",
+        //       "dueDate": "12/12/2018",
+        //       "complete": "" - attribute: is checked - value = "checked"?
+        //   }  ],
 
 // Until we pass in a value
-let userId = "Colleen"
+let userId = 1;
     let newTask = {
       userId: userId,
       task: inputTaskName,
       dueDate: inputTaskDueDate,
       complete: inputComplete
     }
-
-    
     TasksFetch.postNewTask(newTask)
     .then(response => {
-      TasksList.createDomList()
+        TasksList.createDomList()
     })
-  }
+},
 }
+>>>>>>> origin
 
-export default TasksDomBuilder
+// export default TasksDomBuilder
