@@ -125,57 +125,57 @@ import Data from "./UserData"
 import NavBar from "./NavBar"
 
 // // CHAT
-// import messageList from "./friendsScripts/list"
-// import messageForm from "./friendsScripts/domBuilder"
+import messageList from "./friendsScripts/list"
+import messageForm from "./friendsScripts/domBuilder"
 
 // TASKS
 import  TasksDomBuilder from "./tasks/TasksDomBuilder"
 import TasksList from "./tasks/TasksList"
 
 // // NEWS
-// import newsDomBuilder from "./news/newsDomBuilder"
-// import newsList from "./news/newsList"
+import newsDomBuilder from "./news/newsDomBuilder"
+import newsList from "./news/newsList"
 
 // // EVENTS
 
 
 // // *********************
 
-// // NAVBAR
-// NavBar.navBuilder();
+// NAVBAR
+NavBar.navBuilder();
 
 // // CHAT
-// messageForm.createChatHeader();
-// messageList.chatify();
-// messageForm.createAndAppendInput();
+messageForm.createChatHeader();
+messageList.chatify();
+messageForm.createAndAppendInput();
 
 // // TASKS
-// TasksDomBuilder.createAndAppendForm()
+TasksDomBuilder.createAndAppendForm()
 
 // // NEWS
-// newsDomBuilder.addNewArticleForm()
-// newsList.newshtmlappending()
-// LOGIN
-//Data.getData()
-//Login.appendLogin();
-//Login.signUp()
-//Login.testEvent()
+newsDomBuilder.addNewArticleForm()
+newsList.newshtmlappending()
+LOGIN
+Data.getData()
+Login.appendLogin();
+Login.signUp()
+Login.testEvent()
 
 // NAVBAR
 NavBar.navBuilder();
 
 // CHAT
-//messageForm.createChatHeader();
-//messageList.chatify();
-//messageForm.createAndAppendInput();
+messageForm.createChatHeader();
+messageList.chatify();
+messageForm.createAndAppendInput();
 
 // TASKS
-//TasksDomBuilder.createAndAppendForm();
-//TasksList.createDomList
+TasksDomBuilder.createAndAppendForm();
+TasksList.createDomList
 
 
 // NEWS
-//newsDomBuilder.addNewArticleForm();
-//newsList.newshtmlappending();
+newsDomBuilder.addNewArticleForm();
+newsList.newshtmlappending();
 
 // EVENTS
