@@ -99,8 +99,14 @@ li a:active {
 	margin-top: 8px;
 }
 
-.addContainer {
+.displayContainer {
 	margin-top: 70px;
+	display: flex;
+	flex-wrap: wrap; 
+	justify-content: space-between;
+}
+
+.addContainer {
 	display: flex;
 	flex-wrap: wrap; 
 	flex-direction: column;

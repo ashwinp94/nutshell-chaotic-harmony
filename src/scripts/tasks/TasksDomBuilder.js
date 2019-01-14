@@ -102,7 +102,18 @@ const TasksDomBuilder = {
 
     console.log(taskFormArticle);
     TasksList.createDomList();
-    },    
+    },
+    
+    clearDom() {
+        console.log("Hello from TasksDomBuilder.clearDom");
+        let clearHtmlDiv = document.querySelector("#pageDiv");
+        let clearHtmlSection = document.querySelector("#clearSection");
+        clearHtmlSection.innerHTML = `
+          <article id="tasksOutput"></article>
+          <article id="taskListOutput"></article>`;
+        clearHtmlDiv.appendChild(clearHtmlSection);
+      },
+  
 
   handleAddNewTask() {
     let inputTaskName = document.querySelector("#task").value

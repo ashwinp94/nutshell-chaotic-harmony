@@ -1,7 +1,14 @@
-//import messageForm from "./friendsScripts/MessageForm"
-import TasksDomBuilder from "./tasks/TasksDomBuilder"
-//mport EventsDOMBuilder from "./events/EventsDOMBuilder"
+// CHAT
+import messageList from "./friendsScripts/list"
+import messageForm from "./friendsScripts/domBuilder"
+
+// TASKS
+import  TasksDomBuilder from "./tasks/TasksDomBuilder"
+import TasksList from "./tasks/TasksList"
+
+// NEWS
 import newsDomBuilder from "./news/newsDomBuilder"
+import newsList from "./news/newsList"
 
 
 const NavBar = {
@@ -28,15 +35,17 @@ const NavBar = {
 		let navBar = document.createElement("nav");
 		navBar.setAttribute("id", "navBar");
 		let navUl = document.createElement("ul");
-		
 		let liOne = document.createElement("li");
 		liOne.setAttribute("class", "liOne");
 		let linkOne = document.createElement("a");
         linkOne.setAttribute("href", "#");
         linkOne.textContent = "Home";
         liOne.appendChild(linkOne);
-		//liOne.addEventListener("click", messageForm.createAndAppendInput);
-		
+		liOne.addEventListener("click", () => {
+			messageList.chatify();
+			messageForm.createAndAppendInput();
+		})
+
 		let liTwo = document.createElement("li");
 		liTwo.setAttribute("class", "liTwo");
 		let linkTwo = document.createElement("a");
@@ -47,7 +56,6 @@ const NavBar = {
 			NavBar.clearDom();
 			TasksDomBuilder.createAndAppendForm();
 		})
-		
 		let liThree = document.createElement("li");
 		liThree.setAttribute("class", "liThree");
 		let linkThree = document.createElement("a");
@@ -55,7 +63,6 @@ const NavBar = {
         linkThree.textContent = "Events";
         liThree.appendChild(linkThree);
 		//liThree.addEventListener("click", eventsDomBuilder.createAndAppendForm);
-		
 		let liFour = document.createElement("li");
 		liFour.setAttribute("class", "liFour");
 		let linkFour = document.createElement("a");
@@ -66,7 +73,6 @@ const NavBar = {
 			NavBar.clearDom();
 			newsDomBuilder.addNewArticleForm();
 			})
-        
 		let liFive = document.createElement("li");
 		liFive.setAttribute("class", "liFive");
 		let linkFive = document.createElement("a");
@@ -79,8 +85,8 @@ const NavBar = {
         navUl.appendChild(liTwo);
         navUl.appendChild(liThree);
         navUl.appendChild(liFour);
-        navUl.appendChild(liFive);        
-        navBar.appendChild(navUl);
+		navUl.appendChild(liFive);
+		navBar.appendChild(navUl);
         navBarContainer.appendChild(navBar);
     }
 }

@@ -30,6 +30,7 @@ const userId = 1;
       }
       outputArticle.appendChild(taskDocFragment)
     })
+    TasksDomBuilder.createAndAppendForm()
   }
 }
 export default TasksList
