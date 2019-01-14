@@ -1,7 +1,7 @@
 import messageCollection from "./fetch"
 import messageList from "./list"
 
-let currentUserId = 1;
+let currentUserId = sessionStorage.getItem("user Id");
 
 const messageForm = {
     createAndAppendInput() {
@@ -46,7 +46,7 @@ const messageForm = {
             time: currentTime,
         }
         messageCollection.postAllMessages(newMessage)
-        .then(reaponse =>{
+        .then(response =>{
             messageList.chatify();
         })
     }
