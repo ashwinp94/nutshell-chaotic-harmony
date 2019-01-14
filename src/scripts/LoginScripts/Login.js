@@ -4,24 +4,21 @@ const Login = {
     // adding Login page to the dom
     appendLogin() {
         let login = document.querySelector("#userInput");
-        login.innerHTML = ` <h1>Welcome to Nutshell</h1>
+        login.innerHTML = `<div> <h1>Welcome to Nutshell</h1> 
    
     <section class="auth hidden">
-    <div class="username__Prompt">
       Username: 
-    </div>
-    <div >
+    
       <input class="username__Input" type="text" name="username">
-    </div>
-    <div class="email__Prompt">
+   
         Email:
-    </div>
-    <div >
+
+    
       <input class="email__Input" type="text" name="email">
-    </div>
-    <button class="button--login">Login</button>
-  </section>`
-  
+    
+    <button class="button--login">Log in</button>
+  </section>
+  </div>`
     },
     // after when you click the register button, a new form that have email and password inputwill populate the dom
     signUp() {
@@ -30,17 +27,11 @@ const Login = {
         registerAccount.innerHTML =  `<h3> Sign Up</h3> </br>
         <p> It’s free and always will be.</p>
         <form>
-        <div class="dek__usernamePrompt">
-         New username: 
+        <input class="usernameInput"type="text" name="username"placeholder = "put your username">
        </div>
-       
-        <input class="usernameInput"type="text" name="username">
-       </div>
-       <div class="emailPrompt">
-           Email:
-       </div>
-       
-        <input class="emailInput"type="text" name="email"></br>
+       </br>
+        <input class="emailInput"type="text" name="email"placeholder = "put your email">
+        </br>
         <button class="newAccount">Register</button>
         </form>`
        
@@ -58,11 +49,23 @@ const Login = {
         let email = document.querySelector(".email__Input").value;
         Data.getData("users")
             .then(allUsers => {
+                let userStart = 1;
                 allUsers.forEach(user => {
                     if (username === user.username && email === user.email) {
                         console.log(user.username)
                         alert(` ${user.username} is success`)
-                    } 
+                        sessionStorage.setItem("user Id", user.id)
+
+                    
+                    }else if (userStart === allUsers.length){
+                        alert ("not registered")
+                    }else { userStart ++
+
+                    }
+
+                    
+
+                   
                     
                 });
             })
