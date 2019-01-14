@@ -19,11 +19,9 @@
 //      Then it calls TasksList.createDomList() to refresh the
 //      list to show tasks not yet completed
 
-import NavBar from "../NavBar"
+
 import TasksFetch from "./TasksFetch"
-import TasksEditForm from "./TasksEditForm"
 import TasksList from "./TasksList"
-import TasksCreateObject from "./TasksCreateObject"
 
 const TasksDomBuilder = {
     
@@ -79,13 +77,13 @@ const TasksDomBuilder = {
     submitButton.addEventListener("click", this.handleAddNewTask);
 
 // EDIT TASKS HEADER
-    let taskEditHeader = document.createElement("h3");
-    taskEditHeader.textContent = "Click Task to Edit";
-    taskEditHeader.setAttribute("class", "headerH3");
+    // let taskEditHeader = document.createElement("h3");
+    // taskEditHeader.textContent = "Click Task to Edit";
+    // taskEditHeader.setAttribute("class", "headerH3");
 
-    let taskEditHeader2 = document.createElement("h4");
-    taskEditHeader2.textContent = "Check Box to Mark Complete";
-    taskEditHeader2.setAttribute("class", "headerH4");
+    // let taskEditHeader2 = document.createElement("h4");
+    // taskEditHeader2.textContent = "Check Box to Mark Complete";
+    // taskEditHeader2.setAttribute("class", "headerH4");
 
 // 3. Append the HTML form to the DOM
     let taskFormFragment = document.createDocumentFragment();
@@ -94,8 +92,8 @@ const TasksDomBuilder = {
     taskFormFragment.appendChild(taskNameField);
     taskFormFragment.appendChild(taskDueDateField);
     taskFormFragment.appendChild(submitButton);
-    taskFormFragment.appendChild(taskEditHeader);
-    taskFormFragment.appendChild(taskEditHeader2);
+    // taskFormFragment.appendChild(taskEditHeader);
+    // taskFormFragment.appendChild(taskEditHeader2);
 
     let taskFormArticle = document.querySelector("#tasksOutput");
     taskFormArticle.setAttribute("class", "addContainer");

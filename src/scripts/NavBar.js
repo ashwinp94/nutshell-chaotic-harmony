@@ -87,7 +87,10 @@ const NavBar = {
         navUl.appendChild(liFour);
 		navUl.appendChild(liFive);
 		navBar.appendChild(navUl);
-        navBarContainer.appendChild(navBar);
+		navBarContainer.appendChild(navBar);
+		
+		messageList.chatify();
+		messageForm.createAndAppendInput();
     }
 }
 export default NavBar
