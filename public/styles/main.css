@@ -1,10 +1,11 @@
-* {
+/* * {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
-}
+} */
 
 body {
+	padding-top: 60px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -20,7 +21,7 @@ ul {
 	list-style-type: none;
 	display: inline-block;
 	overflow: hidden;
-	background-color: #1D1D2C;
+	background-color: navy;
 	margin: 3px;
 	padding: 3px;
 	border: 1px solid #F7F4E9;
@@ -37,28 +38,18 @@ a {
 	display: block;
 	padding: 10px 40px;
 	text-decoration: none;
-	font-size: 20px;
+	font-size: 18px;
 	position: relative;
 	color: fade(white, 80%);
-	transform: translateX(-15%);
-	border-radius: 50px;
-	width: 130%;
 	text-align: center;
-	transition-duration: 0.25s;
 }
 	
 li a:hover{
 		color: white;
 	}
 
-/* li a:after {
-		content:"";
-		display:table;
-		clear:both;
-	} */
-
-.active {
-	background-color: #F7F4E9;
+li a:active {
+	background-color: navy;
 }
 
 .liOne {
@@ -82,3 +73,55 @@ li a:hover{
 body{
 	background-color: grey;
 }
+
+.headerH1 {
+	margin-top: 2px;
+}
+
+.headerH2 {
+	margin-top: 2px;
+}
+
+.headerH3 {
+	margin-top: 16px;
+	padding-bottom: 0;
+}
+
+.headerH4 {
+	margin-bottom: 2px;
+}
+
+.btnClass {
+	margin-top: 10px;
+	
+}
+.listItemContainer {
+	display: block;	
+}
+
+.listItem {
+	display: inline-block;
+	margin-right: 8px;
+	margin-top: 8px;
+}
+
+.displayContainer {
+	margin-top: 70px;
+	display: flex;
+	flex-wrap: wrap; 
+	justify-content: space-between;
+}
+
+.addContainer {
+	display: flex;
+	flex-wrap: wrap; 
+	flex-direction: column;
+}
+
+.editContainer {
+	display: flex;
+	flex-wrap: wrap; 
+	flex-direction: column;
+}
+
+	
