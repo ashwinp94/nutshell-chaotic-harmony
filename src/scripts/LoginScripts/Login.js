@@ -44,6 +44,7 @@ const Login = {
     testEvent() {
         let submitButton = document.querySelector(".button--login");
         submitButton.addEventListener("click", Login.getUserData)
+       
     },
 
     getUserData() {

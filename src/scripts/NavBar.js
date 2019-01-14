@@ -76,6 +76,9 @@ const NavBar = {
 		let liFive = document.createElement("li");
 		liFive.setAttribute("class", "liFive");
 		let linkFive = document.createElement("a");
+		linkFive.addEventListener("click", function() {
+			location.reload(true)
+	})
         linkFive.setAttribute("href", "#");
         linkFive.textContent = "Logout";
         liFive.appendChild(linkFive);
@@ -91,8 +94,9 @@ const NavBar = {
 		
 		messageList.chatify();
 		messageForm.createAndAppendInput();
-    }
+	}
 }
+
 export default NavBar
 
 // navBar.innerHTML = `
