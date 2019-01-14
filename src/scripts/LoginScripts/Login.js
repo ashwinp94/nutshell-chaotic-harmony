@@ -30,7 +30,7 @@ const Login = {
         <input class="usernameInput"type="text" name="username"placeholder = "put your username">
        </div>
        </br>
-        <input class="emailInput"type="text" name="email"placeholder = "put your email">
+        <input class="emailInput"type="email" name="email"placeholder = "put your email">
         </br>
         <button class="newAccount">Register</button>
         </form>`
@@ -50,11 +50,11 @@ const Login = {
         Data.getData("users")
             .then(allUsers => {
                 let userStart = 1;
-                allUsers.forEach(user => {
-                    if (username === user.username && email === user.email) {
-                        console.log(user.username)
-                        alert(` ${user.username} is success`)
-                        sessionStorage.setItem("user Id", user.id)
+                allUsers.forEach(users => {
+                    if (username === users.username && email === users.email) {
+                        console.log(users.username)
+                        alert(` ${users.username} is success`)
+                        sessionStorage.setItem("user Id", users.id)
 
                     
                     }else if (userStart === allUsers.length){
@@ -78,6 +78,9 @@ const Login = {
     registerData() {
         let newUser = document.querySelector(".usernameInput").value;
         let newEmail = document.querySelector(".emailInput").value;
+        if(newUser === "" && newEmail === ""){
+            alert ("blank page, please write something")
+        }
            // add user input into an object that will be passed into the database
            let newEntry = {
                username : newUser,

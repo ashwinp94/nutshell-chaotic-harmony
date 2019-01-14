@@ -1,5 +1,5 @@
 {
-  "user": [
+  "users": [
     {
       "id": 1,
       "username": "selamawit",
@@ -41,24 +41,25 @@
       "id": 8
     },
     {
-      "username": "",
-      "email": "",
-      "id": 9
+      "username": "jisie",
+      "email": "jisie@email.com",
+      "id": 13
     },
     {
-      "username": "",
-      "email": "",
-      "id": 10
+      "username": "ashwin",
+      "email": "ashwin@gmail.com",
+      "id": 14
     },
     {
-      "username": "",
-      "email": "",
-      "id": 11
+      "username": "emily",
+      "email": "emily@email.com",
+      "id": 15
     },
     {
-      "username": "",
-      "email": "",
-      "id": 12
+      "username": "test",
+      "email": "test@email.com",
+      "id": 16
     }
+    
   ]
 }

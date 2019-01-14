@@ -1,16 +1,16 @@
 import Login from "./LoginScripts/Login"
 import Data from "./LoginScripts/UserData"
-
+import NaVBar from "./tasks/NavBar"
 
 Data.getData()
 Login.appendLogin();
 Login.signUp()
 Login.testEvent()
-Login.getUserData()
+
 Login.registerUser()
 
 
-
+NaVBar.navBuilder()
 
 
 
