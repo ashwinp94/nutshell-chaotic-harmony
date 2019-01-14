@@ -1,10 +1,12 @@
 const TasksFetch = {
 
-    getAllTasks() {
-      return fetch("http://localhost:8088/tasks")
+  // ***** Need to replace "1" value for userId with
+// the variable being passed *****
+
+    getAllTasksById() {
+      return fetch(`http://localhost:8088/tasks?userId=1&complete=unchecked`)
       .then(response => response.json())
     },
-  
     postNewTask(newTaskToSave) {
       return fetch("http://localhost:8088/tasks", {
         method: "POST",
@@ -14,7 +16,6 @@ const TasksFetch = {
         body: JSON.stringify(newTaskToSave)
       })
     },
-        
     getTask(taskId) {
       return fetch(`http://localhost:8088/tasks/${taskId}`)
       .then(response => response.json())
@@ -30,5 +31,4 @@ const TasksFetch = {
       })
     }
   }
-  
   export default TasksFetch
