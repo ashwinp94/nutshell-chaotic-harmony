@@ -4,7 +4,7 @@ const messageCollection = {
         .then(response => response.json())
     },
     postAllMessages(newMessageToSave) {
-        fetch("http://localhost:8088/messages", {
+        return fetch("http://localhost:8088/messages", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
