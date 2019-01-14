@@ -5,7 +5,6 @@
 } */
 
 body {
-	padding-top: 60px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -43,13 +42,14 @@ a {
 	color: fade(white, 80%);
 	text-align: center;
 }
-	
+		
 li a:hover{
 		color: white;
 	}
 
-li a:active {
-	background-color: navy;
+.active {
+	background-color: #F7F4E9;
+	
 }
 
 .liOne {
@@ -70,9 +70,6 @@ li a:active {
 /* .liSix {
 	background-color: blue;
 } */
-body{
-	background-color: grey;
-}
 
 .headerH1 {
 	margin-top: 2px;
@@ -93,7 +90,7 @@ body{
 
 .btnClass {
 	margin-top: 10px;
-	
+
 }
 .listItemContainer {
 	display: block;	
@@ -123,5 +120,3 @@ body{
 	flex-wrap: wrap; 
 	flex-direction: column;
 }
-
-	
