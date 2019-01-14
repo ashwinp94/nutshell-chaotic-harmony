@@ -15,6 +15,7 @@ const messageEditForm = {
         messageEditField.appendChild(messageEditLabel)
         messageEditField.appendChild(messageEditInput)
 
+
         let updateButton = document.createElement("button")
         updateButton.textContent = "Update"
         updateButton.addEventListener("click", ()=>{

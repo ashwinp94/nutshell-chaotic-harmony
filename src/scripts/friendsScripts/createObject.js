@@ -1,6 +1,8 @@
 import messageCollection from "./fetch"
 import messageEditForm from "./editForm"
 
+let currentUserName = sessionStorage.getItem("userName");
+
 const chat = {
     chatBuilder(chatObject){
         let chatArea = document.createElement("article")
@@ -8,6 +10,7 @@ const chat = {
 
         let chatName = document.createElement("h3")
         chatName.textContent = chatObject.user.username;
+        chatName.setAttribute("id", chatObject.user.username )
 
         let chatMessage = document.createElement("section")
         chatMessage.textContent = chatObject.message;
@@ -15,9 +18,13 @@ const chat = {
         let chatTime = document.createElement("section")
         chatTime.textContent= chatObject.time;
 
-        let editMessageButton = document.createElement("button")
-        editMessageButton.textContent = "Edit",
-        editMessageButton.addEventListener("click", () => {
+
+        if (`${chatObject.user.username}`=== currentUserName) {
+            let editMessageButton = document.createElement("button")
+            editMessageButton.textContent = "Edit";
+            chatArea.appendChild(editMessageButton);
+
+            editMessageButton.addEventListener("click", () => {
             let articleId = event.target.parentNode.id
             let chatId = articleId.split("--")[1]
             messageCollection.getMessage(chatId)
@@ -26,10 +33,13 @@ const chat = {
             })
         })
 
+        } else {
+        console.log("nothing");
+        }
+
         chatArea.appendChild(chatName);
         chatArea.appendChild(chatMessage);
         chatArea.appendChild(chatTime);
-        chatArea.appendChild(editMessageButton);
 
         return chatArea
     }
