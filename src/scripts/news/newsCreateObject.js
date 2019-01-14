@@ -1,5 +1,15 @@
 // This module will build html form for an object and append it to the DOM
 const newsCreateObject = {
+
+  addHeader() {  
+    let taskEditHeader = document.createElement("h3");
+    taskEditHeader.textContent = "Click Task to Edit";
+    taskEditHeader.setAttribute("class", "headerH3");
+
+    let taskEditHeader2 = document.createElement("h4");
+    taskEditHeader2.textContent = "Check Box to Mark Complete";
+    taskEditHeader2.setAttribute("class", "headerH4");
+  },
   // method to build html form, takes one argument it is an object from database
     articleBuilder(articleObject) {
       // create html elements

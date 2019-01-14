@@ -4,11 +4,11 @@ import messageForm from "./friendsScripts/domBuilder"
 
 // TASKS
 import  TasksDomBuilder from "./tasks/TasksDomBuilder"
-import TasksList from "./tasks/TasksList"
+//import TasksList from "./tasks/TasksList"
 
 // NEWS
 import newsDomBuilder from "./news/newsDomBuilder"
-import newsList from "./news/newsList"
+//import newsList from "./news/newsList"
 
 
 const NavBar = {

@@ -1,4 +1,5 @@
 import messageCollection from "./fetch"
+import messageList from "./list"
 
 let currentUserId = 1;
 
@@ -45,6 +46,9 @@ const messageForm = {
             time: currentTime,
         }
         messageCollection.postAllMessages(newMessage)
+        .then(reaponse =>{
+            messageList.chatify();
+        })
     }
 }
 
