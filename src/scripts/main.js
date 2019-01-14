@@ -118,11 +118,11 @@ NaVBar.navBuilder()
 // // NAVBAR
 // import NavBar from "./tasks/NavBar"
 // LOGIN
-import Login from "./Login"
-import Data from "./UserData"
+// import Login from "./Login"
+// import Data from "./UserData"
 
 // NAVBAR
-import NavBar from "./NavBar"
+// import NavBar from "./NavBar"
 
 // // CHAT
 import messageList from "./friendsScripts/list"
@@ -142,7 +142,7 @@ import newsList from "./news/newsList"
 // // *********************
 
 // NAVBAR
-NavBar.navBuilder();
+// NavBar.navBuilder();
 
 // // CHAT
 messageForm.createChatHeader();
@@ -153,16 +153,16 @@ messageForm.createAndAppendInput();
 TasksDomBuilder.createAndAppendForm()
 
 // // NEWS
-newsDomBuilder.addNewArticleForm()
-newsList.newshtmlappending()
-LOGIN
-Data.getData()
-Login.appendLogin();
-Login.signUp()
-Login.testEvent()
+// newsDomBuilder.addNewArticleForm()
+// newsList.newshtmlappending()
+// LOGIN
+// Data.getData()
+// Login.appendLogin();
+// Login.signUp()
+// Login.testEvent()
 
 // NAVBAR
-NavBar.navBuilder();
+// NavBar.navBuilder();
 
 // CHAT
 messageForm.createChatHeader();

@@ -18,9 +18,8 @@
         "no-unreachable": "warn",
         "no-unused-vars": "warn",
         "constructor-super": "warn",
-        "valid-typeof": "warn",
-        "quotes": ["warn", "double"],
-        "no-trailing-spaces": 1
+        "valid-typeof": "warn"
+       
     },
     "globals": {
         "$": true
