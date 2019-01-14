@@ -1,5 +1,7 @@
 import Data from "./UserData"
 
+import NavBar from "../NavBar";
+
 const Login = {
     // adding Login page to the dom
     appendLogin() {
@@ -55,7 +57,8 @@ const Login = {
                         console.log(users.username)
                         alert(` ${users.username} is success`)
                         sessionStorage.setItem("user Id", users.id)
-
+                        NavBar.clearDom()
+                        NavBar.navBuilder()
                     
                     }else if (userStart === allUsers.length){
                         alert ("not registered")
@@ -87,6 +90,8 @@ const Login = {
                email : newEmail
            };
            Data.postNewUser(newEntry)
+           NavBar.clearDom()
+           NavBar.navBuilder()
     }
 }
 

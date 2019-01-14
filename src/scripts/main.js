@@ -1,12 +1,12 @@
 import Login from "./LoginScripts/Login"
 import Data from "./LoginScripts/UserData"
-import NaVBar from "./tasks/NavBar"
 
 Data.getData()
 Login.appendLogin();
 Login.signUp()
 Login.testEvent()
 
+<<<<<<< HEAD
 Login.registerUser()
 
 
@@ -179,3 +179,6 @@ newsDomBuilder.addNewArticleForm();
 newsList.newshtmlappending();
 
 // EVENTS
+=======
+Login.registerUser()
+>>>>>>> origin
