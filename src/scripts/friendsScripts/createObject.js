@@ -18,6 +18,9 @@ const chat = {
         let chatTime = document.createElement("section")
         chatTime.textContent= chatObject.time;
 
+        chatArea.appendChild(chatName);
+        chatArea.appendChild(chatMessage);
+        chatArea.appendChild(chatTime);
 
         if (`${chatObject.user.username}`=== currentUserName) {
             let editMessageButton = document.createElement("button")
@@ -25,22 +28,17 @@ const chat = {
             chatArea.appendChild(editMessageButton);
 
             editMessageButton.addEventListener("click", () => {
-            let articleId = event.target.parentNode.id
-            let chatId = articleId.split("--")[1]
-            messageCollection.getMessage(chatId)
-            .then(response => {
-                messageEditForm.createAndAppendForm(articleId, response)
+                let articleId = event.target.parentNode.id
+                let chatId = articleId.split("--")[1]
+                messageCollection.getMessage(chatId)
+                .then(response => {
+                    messageEditForm.createAndAppendForm(articleId, response)
+                })
             })
-        })
 
         } else {
         console.log("nothing");
         }
-
-        chatArea.appendChild(chatName);
-        chatArea.appendChild(chatMessage);
-        chatArea.appendChild(chatTime);
-
         return chatArea
     }
 }
