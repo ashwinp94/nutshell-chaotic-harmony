@@ -23,6 +23,7 @@ const messageForm = {
 
         submitButton.addEventListener("click", messageForm.handleAddNewMessage)
 
+
         let chatFormFragment = document.createDocumentFragment()
         chatFormFragment.appendChild(chatMessageField)
         chatFormFragment.appendChild(submitButton)
@@ -39,6 +40,7 @@ const messageForm = {
     handleAddNewMessage() {
         let inputMessage = document.querySelector("#chat_text").value
         let currentTime = new Date();
+
 
         let newMessage = {
             message: inputMessage,

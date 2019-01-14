@@ -42,14 +42,14 @@ a {
 	color: fade(white, 80%);
 	text-align: center;
 }
-		
+
 li a:hover{
 		color: white;
 	}
 
 .active {
 	background-color: #F7F4E9;
-	
+
 }
 
 .liOne {
@@ -93,7 +93,7 @@ li a:hover{
 
 }
 .listItemContainer {
-	display: block;	
+	display: block;
 }
 
 .listItem {
@@ -105,18 +105,18 @@ li a:hover{
 .displayContainer {
 	margin-top: 70px;
 	display: flex;
-	flex-wrap: wrap; 
+	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
 .addContainer {
 	display: flex;
-	flex-wrap: wrap; 
+	flex-wrap: wrap;
 	flex-direction: column;
 }
 
 .editContainer {
 	display: flex;
-	flex-wrap: wrap; 
+	flex-wrap: wrap;
 	flex-direction: column;
 }
