@@ -16,6 +16,9 @@ const newsList= {
                 newsDocFragment.appendChild(newsHtml)
                 // get a reference of our container in index.html
                 let newsOutput = document.querySelector("#newsOutput")
+                while (newsOutput.firstChild) {
+                    newsOutput.removeChild(newsOutput.firstChild);
+                  }
                 // append document fragment to the container
                 newsOutput.appendChild(newsDocFragment)
             })
