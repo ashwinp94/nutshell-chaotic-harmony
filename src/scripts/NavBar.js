@@ -42,6 +42,8 @@ const NavBar = {
         linkOne.textContent = "Home";
         liOne.appendChild(linkOne);
 		liOne.addEventListener("click", () => {
+			NavBar.clearDom();
+			console.log("I cleared Dom from NavBar")
 			messageList.chatify();
 			messageForm.createAndAppendInput();
 		})
@@ -54,9 +56,8 @@ const NavBar = {
         liTwo.appendChild(linkTwo);
 		liTwo.addEventListener("click", () => {
 			NavBar.clearDom();
-			console.log("hello")
+			console.log("I cleared Dom from NavBar")
 			TasksDomBuilder.createAndAppendForm();
-			TasksList.createDomList();
 		})
 		let liThree = document.createElement("li");
 		liThree.setAttribute("class", "liThree");

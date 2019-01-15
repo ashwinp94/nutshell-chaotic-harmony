@@ -24,13 +24,13 @@ import TasksFetch from "./TasksFetch"
 import TasksList from "./TasksList"
 import TasksCreateObject from "./TasksCreateObject";
 
-const TasksDomBuilder = {
+const TasksDomBuilder = { 
     
   createAndAppendForm() {
 // MAIN HEADER
-    let taskFormHeader = document.createElement("h1");
-    taskFormHeader.textContent = "TO DO LIST";
-    taskFormHeader.setAttribute("class", "headerH1");
+    // let taskFormHeader = document.createElement("h1");
+    // taskFormHeader.textContent = "TO DO LIST";
+    // taskFormHeader.setAttribute("class", "headerH1");
 
 // ADD TASKS HEADER
     let taskAddHeader = document.createElement("h2");
@@ -38,8 +38,8 @@ const TasksDomBuilder = {
     taskAddHeader.setAttribute("class", "headerH2");
 
 // TASK
-    let taskNameField = document.createElement("fieldset");
-    taskNameField.setAttribute("class", "listItemContainer");
+    let taskNameField = document.createElement("article");
+    taskNameField.setAttribute("class", "listItem");
 
     let taskNameLabel = document.createElement("label");
     taskNameLabel.textContent = "Task:  ";
@@ -52,7 +52,7 @@ const TasksDomBuilder = {
     taskNameField.appendChild(taskNameInput);
 
 // // DUE DATE
-    let taskDueDateField = document.createElement("fieldset");
+    let taskDueDateField = document.createElement("article");
     let taskDueDateLabel = document.createElement("label");
     taskDueDateLabel.setAttribute("for", "dueDate");
     taskDueDateLabel.textContent = "Date:  ";
@@ -71,33 +71,39 @@ const TasksDomBuilder = {
     // 2. Attach event listener to button in form
     submitButton.addEventListener("click", this.handleAddNewTask);
 
-// EDIT TASKS HEADER
-    // let taskEditHeader = document.createElement("h3");
-    // taskEditHeader.textContent = "Click Task to Edit";
-    // taskEditHeader.setAttribute("class", "headerH3");
-
-    // let taskEditHeader2 = document.createElement("h4");
+// EDIT HEADERS
+    let editHeadersField = document.createElement("article")
+    // editHeadersField.setAttribute("class", "listItemContainer")
+    let taskEditHeader = document.createElement("h4");
+    taskEditHeader.textContent = "Click Task to Edit - Check Box to Mark Complete";
+    // taskEditHeader.setAttribute("class", "headerH4");
+    // let taskEditHeader2 = document.createElement("h5");
     // taskEditHeader2.textContent = "Check Box to Mark Complete";
-    // taskEditHeader2.setAttribute("class", "headerH4");
+    // taskEditHeader2.setAttribute("class", "headerH5");
+    editHeadersField.appendChild(taskEditHeader);
+    // editHeadersField.appendChild(taskEditHeader2);
 
 // 3. Append the HTML form to the DOM
     let taskFormFragment = document.createDocumentFragment();
-    taskFormFragment.appendChild(taskFormHeader);
+    // taskFormFragment.appendChild(taskFormHeader);
     taskFormFragment.appendChild(taskAddHeader);
     taskFormFragment.appendChild(taskNameField);
     taskFormFragment.appendChild(taskDueDateField);
     taskFormFragment.appendChild(submitButton);
-    // taskFormFragment.appendChild(taskEditHeader);
-    // taskFormFragment.appendChild(taskEditHeader2);
 
     let taskFormArticle = document.querySelector("#tasksOutput");
     taskFormArticle.setAttribute("class", "addContainer");
     taskFormArticle.appendChild(taskFormFragment);
 
+    let taskFormArticleEdit = document.querySelector(".addContainer");
+    //taskFormArticle.setAttribute("class", "addContainer");
+    taskFormArticleEdit.appendChild(editHeadersField);
+
     console.log(taskFormArticle);
+    TasksList.createDomList();
   },
     
-  clearDom() {
+  clearTaskDom() {
     console.log("Hello from TasksDomBuilder.clearDom");
     let clearHtmlDiv = document.querySelector("#pageDiv");
     let clearHtmlSection = document.querySelector("#clearSection");
@@ -107,7 +113,6 @@ const TasksDomBuilder = {
     clearHtmlDiv.appendChild(clearHtmlSection);
     },
   
-
   handleAddNewTask() {
     let inputTaskName = document.querySelector("#task").value
     let inputTaskDueDate = document.querySelector("#dueDate").value

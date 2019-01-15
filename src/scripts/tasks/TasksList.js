@@ -4,6 +4,7 @@ import TasksDomBuilder from "./TasksDomBuilder"
 
 const TasksList = {
   createDomList() {
+    
 // ***** Need to replace "1" value for userId with
 // the variable being passed *****
 const userId = 1;
@@ -31,7 +32,6 @@ const userId = 1;
       }
       outputArticle.appendChild(taskDocFragment)
     })
-    //TasksDomBuilder.createAndAppendForm()
   }
 }
 export default TasksList

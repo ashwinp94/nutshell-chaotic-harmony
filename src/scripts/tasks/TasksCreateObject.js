@@ -3,28 +3,12 @@ import TasksFetch from "./TasksFetch"
 import TasksEditForm from "./TasksEditForm"
 
 const TasksCreateObject = {
-  addHeaders () {
-
-    // let taskEditHeader = document.createElement("h3");
-    // taskEditHeader.textContent = "Click Task to Edit";
-    // taskEditHeader.setAttribute("class", "headerH3");
-
-    // let taskEditHeader2 = document.createElement("h4");
-    // taskEditHeader2.textContent = "Check Box to Mark Complete";
-    // taskEditHeader2.setAttribute("class", "headerH4");
-
-    // taskFormFragment.appendChild(taskEditHeader);
-    // taskFormFragment.appendChild(taskEditHeader2);
-  },
-
+  
    taskBuilder(taskItem) {
 
     let taskArticle = document.createElement("article")
     taskArticle.setAttribute("id", `task--${taskItem.id}`)
     taskArticle.setAttribute("class", "listItemContainer")
-
-    //let taskListField = document.createElement("fieldset");
-    //taskListField.setAttribute("class", "listItemContainer");
 
     let editTaskNameBtn = document.createElement("button");
     editTaskNameBtn.textContent = taskItem.task;
