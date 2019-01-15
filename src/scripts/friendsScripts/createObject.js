@@ -1,6 +1,5 @@
 import messageCollection from "./fetch"
 import messageEditForm from "./editForm"
-import messageList from "./list";
 
 let currentUserName = sessionStorage.getItem("userName");
 let currentUserId1 = sessionStorage.getItem("user Id");
@@ -11,8 +10,8 @@ const chat = {
         chatArea.setAttribute("id", `chat--${chatObject.id}`)
 
         let chatName = document.createElement("h3")
-        chatName.textContent = `${chatObject.users.username}`;
-        chatName.setAttribute("id", `${chatObject.users.username}` )
+        chatName.textContent = chatObject.user.username;
+        chatName.setAttribute("id", chatObject.user.username)
 
         let chatMessage = document.createElement("section")
         chatMessage.textContent = chatObject.message;
