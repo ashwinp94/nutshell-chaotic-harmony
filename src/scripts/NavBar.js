@@ -44,6 +44,10 @@ const NavBar = {
 		liOne.addEventListener("click", () => {
 			messageList.chatify();
 			messageForm.createAndAppendInput();
+			messageList.friendify();
+			messageForm.createChatHeader();
+
+
 		})
 
 		let liTwo = document.createElement("li");
@@ -91,9 +95,11 @@ const NavBar = {
 		navUl.appendChild(liFive);
 		navBar.appendChild(navUl);
 		navBarContainer.appendChild(navBar);
-		
+
+		messageForm.createChatHeader();
 		messageList.chatify();
 		messageForm.createAndAppendInput();
+		messageList.friendify();
 	}
 }
 

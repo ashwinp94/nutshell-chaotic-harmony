@@ -1,5 +1,6 @@
 import chat from "./createObject"
 import messageCollection from "./fetch"
+import messageForm from "./domBuilder";
 
 const messageList = {
     chatify() {
@@ -15,6 +16,21 @@ const messageList = {
                 messageOutput.removeChild(messageOutput.firstChild)
             }
             messageOutput.appendChild(chatDocFragment)
+        })
+    },
+    friendify() {
+        messageCollection.getFriendInChat()
+        .then(allFriends =>{
+            let friendDocFragment = document.createDocumentFragment()
+            allFriends.forEach(friendItem => {
+                let friendHTML = messageForm.friendBuilder(friendItem)
+                friendDocFragment.appendChild(friendHTML)
+            })
+            let friendOutput = document.querySelector("#friendsOutput")
+            while (friendOutput.firstChild){
+                friendOutput.removeChild(friendOutput.firstChild)
+            }
+            friendOutput.appendChild(friendDocFragment)
         })
     }
 }
