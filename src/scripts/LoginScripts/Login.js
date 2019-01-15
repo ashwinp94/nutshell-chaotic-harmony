@@ -6,7 +6,7 @@ const Login = {
     // adding Login page to the dom
     appendLogin() {
         let login = document.querySelector("#userInput");
-        login.innerHTML = `<div 
+        login.innerHTML = `<div
     <section class="auth hidden">
       Username:
 
@@ -63,7 +63,7 @@ const Login = {
 
                     } else if (userStart === allUsers.length) {
                         alert("not registered")
-                    } 
+                    }
                     else {
                         userStart++
                     }
