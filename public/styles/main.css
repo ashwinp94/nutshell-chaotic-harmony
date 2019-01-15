@@ -120,3 +120,38 @@ li a:hover{
 	flex-wrap: wrap;
 	flex-direction: column;
 }
+.auth{
+	
+	background-color: skyblue;
+	-webkit-box-shadow: 5px 5px 15px 5px #000000; 
+	box-shadow: 5px 5px 15px 5px #000000;
+	
+	
+}
+.button--login, .newAccount{
+		color: rgb(255, 255, 255); font-size: 16px; line-height: 16px; padding: 6px; border-radius: 10px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+		.myButton:hover {
+		background: #1C6EA4; }
+		.myButton:active {
+		background: #144E75; }
+body{
+	background: #1C6EA4;
+background: -moz-linear-gradient(left, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
+background: -webkit-linear-gradient(left, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
+background: linear-gradient(to right, #1C6EA4 0%, #2388CB 50%, #144E75 100%);
+}
+#usersOutput{
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	background-color: skyblue;
+	-webkit-box-shadow: 5px 5px 15px 5px #000000; 
+	box-shadow: 5px 5px 15px 5px #000000;
+	padding: 1%;
+	
+}
+.style{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

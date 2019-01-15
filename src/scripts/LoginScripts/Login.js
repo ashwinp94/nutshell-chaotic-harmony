@@ -6,8 +6,7 @@ const Login = {
     // adding Login page to the dom
     appendLogin() {
         let login = document.querySelector("#userInput");
-        login.innerHTML = `<div> <h1>Welcome to Nutshell</h1>
-
+        login.innerHTML = `<div 
     <section class="auth hidden">
       Username:
 
@@ -16,23 +15,23 @@ const Login = {
         Email:
 
 
-      <input class="email__Input" type="text" name="email">
+      <input class="email__Input" type="text" name="email"> </br>
 
     <button class="button--login">Log in</button>
-  </section>
-  </div>`
+  </section> </div> ` 
     },
     // after when you click the register button, a new form that have email and password inputwill populate the dom
     signUp() {
 
         let registerAccount = document.querySelector("#usersOutput");
-        registerAccount.innerHTML =  `<h3> Sign Up</h3> </br>
-        <p> It’s free and always will be.</p>
+        registerAccount.innerHTML =  `<h2> Sign Up</h2>
+        </br>
+        <p> It’s free and always will be.</p> </br>
         <form>
-        <input class="usernameInput"type="text" name="username"placeholder = "put your username">
+        <input class="usernameInput"type="text" name="username"placeholder = "Put your username">
        </div>
        </br>
-        <input class="emailInput"type="email" name="email"placeholder = "put your email">
+        <input class="emailInput"type="email" name="email"placeholder = "Put your email">
         </br>
         <button class="newAccount">Register</button>
         </form>`
@@ -92,8 +91,8 @@ const Login = {
                email : newEmail
            };
            Data.postNewUser(newEntry)
-           NavBar.clearDom()
-           NavBar.navBuilder()
+           
+        
     }
 }
 
