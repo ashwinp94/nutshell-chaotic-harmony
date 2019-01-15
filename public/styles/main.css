@@ -103,10 +103,10 @@ li a:hover{
 }
 
 .displayContainer {
-	margin-top: 70px;
-	display: flex;
+	margin-top: 150px;
+	/* display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-between; */
 }
 
 .addContainer {

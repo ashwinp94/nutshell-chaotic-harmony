@@ -22,10 +22,11 @@
 
 import TasksFetch from "./TasksFetch"
 import TasksList from "./TasksList"
+import TasksCreateObject from "./TasksCreateObject";
 
 const TasksDomBuilder = {
     
-    createAndAppendForm() {
+  createAndAppendForm() {
 // MAIN HEADER
     let taskFormHeader = document.createElement("h1");
     taskFormHeader.textContent = "TO DO LIST";
@@ -44,16 +45,14 @@ const TasksDomBuilder = {
     taskNameLabel.textContent = "Task:  ";
     taskNameLabel.setAttribute("for", "task");
 
-//     let taskNameInput = document.createElement("input");
-//     taskNameInput.setAttribute("id", "task");
-//     taskNameInput.setAttribute("name", "task");
-//     taskNameField.appendChild(taskNameLabel);
-//     taskNameField.appendChild(taskNameInput);
+    let taskNameInput = document.createElement("input");
+    taskNameInput.setAttribute("id", "task");
+    taskNameInput.setAttribute("name", "task");
+    taskNameField.appendChild(taskNameLabel);
+    taskNameField.appendChild(taskNameInput);
 
 // // DUE DATE
-//     let taskDueDateField = document.createElement("fieldset");
-
-
+    let taskDueDateField = document.createElement("fieldset");
     let taskDueDateLabel = document.createElement("label");
     taskDueDateLabel.setAttribute("for", "dueDate");
     taskDueDateLabel.textContent = "Date:  ";
@@ -64,10 +63,6 @@ const TasksDomBuilder = {
     taskDueDateInput.setAttribute("name", "dueDate");
     taskDueDateField.appendChild(taskDueDateLabel);
     taskDueDateField.appendChild(taskDueDateInput);
-
-// CHECKBOX - Creating but not appending to DOM
-   // let inputComplete = document.createElement("input");
-    //inputComplete.setAttribute("type", "checkbox");
 
 // SUBMIT BUTTON
     let submitButton = document.createElement("button");
@@ -100,18 +95,17 @@ const TasksDomBuilder = {
     taskFormArticle.appendChild(taskFormFragment);
 
     console.log(taskFormArticle);
-    TasksList.createDomList();
-    },
+  },
     
-    clearDom() {
-        console.log("Hello from TasksDomBuilder.clearDom");
-        let clearHtmlDiv = document.querySelector("#pageDiv");
-        let clearHtmlSection = document.querySelector("#clearSection");
-        clearHtmlSection.innerHTML = `
-          <article id="tasksOutput"></article>
-          <article id="taskListOutput"></article>`;
-        clearHtmlDiv.appendChild(clearHtmlSection);
-      },
+  clearDom() {
+    console.log("Hello from TasksDomBuilder.clearDom");
+    let clearHtmlDiv = document.querySelector("#pageDiv");
+    let clearHtmlSection = document.querySelector("#clearSection");
+    clearHtmlSection.innerHTML = `
+        <article id="tasksOutput"></article>
+        <article id="taskListOutput"></article>`;
+    clearHtmlDiv.appendChild(clearHtmlSection);
+    },
   
 
   handleAddNewTask() {

@@ -4,7 +4,7 @@ import messageForm from "./friendsScripts/domBuilder"
 
 // TASKS
 import  TasksDomBuilder from "./tasks/TasksDomBuilder"
-//import TasksList from "./tasks/TasksList"
+import TasksList from "./tasks/TasksList"
 
 // NEWS
 import newsDomBuilder from "./news/newsDomBuilder"
@@ -54,7 +54,9 @@ const NavBar = {
         liTwo.appendChild(linkTwo);
 		liTwo.addEventListener("click", () => {
 			NavBar.clearDom();
+			console.log("hello")
 			TasksDomBuilder.createAndAppendForm();
+			TasksList.createDomList();
 		})
 		let liThree = document.createElement("li");
 		liThree.setAttribute("class", "liThree");
