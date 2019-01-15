@@ -75,18 +75,11 @@ li a:hover{
 	margin-top: 2px;
 }
 
-.headerH2 {
-	margin-top: 2px;
-}
+.headerH2 {}
 
-.headerH3 {
-	margin-top: 16px;
-	padding-bottom: 0;
-}
+.headerH3 {}
 
-.headerH4 {
-	margin-bottom: 2px;
-}
+.headerH4 {}
 
 .btnClass {
 	margin-top: 10px;
@@ -94,32 +87,31 @@ li a:hover{
 }
 .listItemContainer {
 	display: block;
+	border: #3CBCC3 solid 3px;
 }
 
-.listItem {
+.listItem {	
 	display: inline-block;
 	margin-right: 8px;
 	margin-top: 8px;
 }
 
 .displayContainer {
-	margin-top: 70px;
-	display: flex;
+	margin-top: 150px;
+	/* display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-between; */
 }
 
 .addContainer {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
+	border: #3CBCC3 solid 3px;
 }
 
-.editContainer {
+/* .editContainer {
 	display: flex;
-	flex-wrap: wrap;
 	flex-direction: column;
-}
+} */
+
 .auth{
 	
 	background-color: skyblue;

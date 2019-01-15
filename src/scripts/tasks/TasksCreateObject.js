@@ -1,37 +1,24 @@
 //food.js
 import TasksFetch from "./TasksFetch"
 import TasksEditForm from "./TasksEditForm"
+import TasksList from "./TasksList"
 
 const TasksCreateObject = {
-  addHeaders () {
-    
-
-    let taskEditHeader = document.createElement("h3");
-    taskEditHeader.textContent = "Click Task to Edit";
-    taskEditHeader.setAttribute("class", "headerH3");
-
-    let taskEditHeader2 = document.createElement("h4");
-    taskEditHeader2.textContent = "Check Box to Mark Complete";
-    taskEditHeader2.setAttribute("class", "headerH4");
-
-    taskFormFragment.appendChild(taskEditHeader);
-    taskFormFragment.appendChild(taskEditHeader2);
-  },
-
+  
    taskBuilder(taskItem) {
 
     let taskArticle = document.createElement("article")
-
     taskArticle.setAttribute("id", `task--${taskItem.id}`)
     taskArticle.setAttribute("class", "listItemContainer")
 
     let editTaskNameBtn = document.createElement("button");
     editTaskNameBtn.textContent = taskItem.task;
     console.log(editTaskNameBtn.textContent);
+
     editTaskNameBtn.addEventListener("click", () => {
       let articleId = event.target.parentNode.id;
       let taskId = articleId.split("--")[1]
-      TasksFetch.getAllTasksById(taskId)
+      TasksFetch.getTask(taskId)
       .then(response => {
         console.log(response)
         TasksEditForm.createAndAppendForm(articleId, response)
@@ -43,32 +30,33 @@ const TasksCreateObject = {
     taskDueDate.setAttribute("class", "listItem")
     console.log(taskDueDate);
 
-    const checkedOff = document.getElementById("gotItDone")
+    let checkedOff = document.getElementById("gotItDone")
     let taskComplete = document.createElement("input");
     taskComplete.setAttribute("type", "checkbox");
     taskComplete.setAttribute("name", "complete");
     taskComplete.setAttribute("class", "listItem");
     taskComplete.setAttribute("id", "gotItDone");
     taskComplete.value = taskItem.complete;
+    
     taskComplete.addEventListener("click", () => {
       let articleId = event.target.parentNode.id;
       let taskId = articleId.split("--")[1]
-      TasksFetch.getAllTasksById(taskId)
+      
+      TasksFetch.getTask(taskId)
       .then(response => {
         console.log(response)
         if (checkedOff != "unchecked") {
-          alert("You did it!")
+          alert("You did it! - The taskId = " + taskId)
         }
-        let editedTask = {
-          task: taskNameInput.value,
+        let taskToEdit = {
           complete: "checked",
       }
-  })
-
-TasksFetch.putExistingTask(taskItem, editedTask)
-  .then(response => {
-  TasksList.createDomList()
-  })
+    
+    TasksFetch.putExistingTask(taskId, taskToEdit)
+      .then(response => {
+      TasksList.createDomList()
+      })
+    })
 })  
       
 

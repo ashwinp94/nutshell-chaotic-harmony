@@ -4,7 +4,7 @@ import messageForm from "./friendsScripts/domBuilder"
 
 // TASKS
 import  TasksDomBuilder from "./tasks/TasksDomBuilder"
-//import TasksList from "./tasks/TasksList"
+import TasksList from "./tasks/TasksList"
 
 // NEWS
 import newsDomBuilder from "./news/newsDomBuilder"
@@ -43,6 +43,8 @@ const NavBar = {
         linkOne.textContent = "Home";
         liOne.appendChild(linkOne);
 		liOne.addEventListener("click", () => {
+			NavBar.clearDom();
+			console.log("I cleared Dom from NavBar")
 			messageList.chatify();
 			messageForm.createAndAppendInput();
 			messageList.friendify();
@@ -59,6 +61,7 @@ const NavBar = {
         liTwo.appendChild(linkTwo);
 		liTwo.addEventListener("click", () => {
 			NavBar.clearDom();
+			console.log("I cleared Dom from NavBar")
 			TasksDomBuilder.createAndAppendForm();
 		})
 		let liThree = document.createElement("li");
