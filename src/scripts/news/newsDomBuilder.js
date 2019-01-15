@@ -4,67 +4,83 @@ import newsFetch from "./newsFetch"
 
 const newsDomBuilder= {
     addNewArticleForm() {
-        // button created when clicked displays a form to inter New article
-        const newsOutput= document.querySelector("#newsOutput")
-        let newArticleBtn= document.createElement("button")
-        let newBtn= document.createTextNode("New article")
-        newArticleBtn.classList.add("newArticleBtn")
-        newArticleBtn.appendChild(newBtn)
-        newsOutput.appendChild(newArticleBtn)
-        // add eventListener to the above button
-        newArticleBtn.addEventListener("click", ()=>{
-            // get reference of container in index.html
-            const newsOutput= document.querySelector("#newsOutput")
-            // create new article form
-            let inputForm = `
-            <article>
-            <h2>add your article here</h2>
-                <section>
-                    <label for="new-title">News title:</label>
-                    <input id="new-title" name="new-title" type="text" />
-                </section>
-                <section>
-                    <label for="new-Synopsis">Synopsis:</label>
-                    <textArea id="new-Synopsis" name="new-Synopsis" type="text" ></textArea>
-                </section>
-                <section>
-                    <label for="new-URL">URL:</label>
-                    <input id="new-link" name="new-link" type="text" />
-                </section>
-                <section>
-            </article>
-                `
-                // append add new article form to dom (container in the index.html)
-                newsOutput.innerHTML=inputForm
-                // create save button when clicked sens the article entered to database
-                let saveArticleBtn = document.createElement("button")
-                let saveBtn= document.createTextNode("Save article")
-                saveArticleBtn.classList.add("saveArticleBtn")
-                saveArticleBtn.appendChild(saveBtn)
-                newsOutput.appendChild(saveArticleBtn)
-                // add eventListener to the save button
-                saveArticleBtn.addEventListener("click", newsDomBuilder.handleAddNewArticle)
-        })
-// function executed when button clicked and gets the value entered in the form, create an object, pass the to post fetch call
+      // Build HTML form
+      let addewsHeader = document.createElement("h3")
+      addewsHeader.textContent = "Add new article"
+  
+      let newsTitleField = document.createElement("fieldset")
+  
+      let newsTitleLabel = document.createElement("label")
+      newsTitleLabel.textContent = "title"
+      newsTitleLabel.setAttribute("for", "newsTitle")
+      let newsTitleInput = document.createElement("input")
+      newsTitleInput.setAttribute("id", "newsTitle")
+      newsTitleInput.setAttribute("name", "news-Title")
+  
+      newsTitleField.appendChild(newsTitleLabel)
+      newsTitleField.appendChild(newsTitleInput)
+  
+      let newsSynopsisField = document.createElement("fieldset")
+  
+      let newsSynopsisLabel = document.createElement("label")
+      newsSynopsisLabel.textContent = "synopsis"
+      newsSynopsisLabel.setAttribute("for", "newsSynopsis")
+      let newsSynopsisInput = document.createElement("input")
+      newsSynopsisInput.setAttribute("id", "newsSynopsis")
+      newsSynopsisInput.setAttribute("name", "news-Synopsis")
+  
+      newsSynopsisField.appendChild(newsSynopsisLabel)
+      newsSynopsisField.appendChild(newsSynopsisInput)
+  
+      let newsUrlField = document.createElement("fieldset")
+  
+      let newsUrlLabel = document.createElement("label")
+      newsUrlLabel.textContent = "url"
+      newsUrlLabel.setAttribute("for", "newsUrl")
+      let newsUrlInput = document.createElement("input")
+      newsUrlInput.setAttribute("id", "newsUrl")
+      newsUrlInput.setAttribute("name", "news-Url")
+  
+      newsUrlField.appendChild(newsUrlLabel)
+      newsUrlField.appendChild(newsUrlInput)
+  
+      let submitButton = document.createElement("button")
+      submitButton.textContent = "Add new article"
+      submitButton.setAttribute("class", "newsSave")
+  
+      // Attach event listener to button in form
+      submitButton.addEventListener("click", this.handleAddNewArticle)
+
+      // Append the HTML form to the DOM
+      const newsForm = document.querySelector("#newsForm")
+      // let formArticle= document.createElement("article")
+      // newsOutput.appendChild(formArticle)
+      let newsFormFragment = document.createDocumentFragment()
+      newsFormFragment.appendChild(addewsHeader)
+      newsFormFragment.appendChild(newsTitleField)
+      newsFormFragment.appendChild(newsSynopsisField)
+      newsFormFragment.appendChild(newsUrlField)
+      newsFormFragment.appendChild(submitButton)
+      newsForm.appendChild(newsFormFragment)
+      // formArticle= ""
+      // new
+  
     },
-    handleAddNewArticle() {
-        let inputArticleTitle = document.querySelector("#new-title").value
-        let inputArticleSynopsis = document.querySelector("#new-Synopsis").value
-        let inputArticleUrl = document.querySelector("#new-link").value
-        // let userIdDisplay = `${news.userId}`
-        // let timeStampDisplay = `${news.timeStamp}`
-        let newArticleObj =
-            {
-                // userId: userIdDisplay,
-                // timeStamp: timeStampDisplay,
-                title: inputArticleTitle,
-                synopsis: inputArticleSynopsis,
-                url: inputArticleUrl
-            }
-            // new article object passed to post fetch call
-        newsFetch.postNewArticle(newArticleObj)
-        // .then(response => {
-            newsList.newshtmlappending()
+    handleAddNewArticle (event) {
+      // 1. Get user input that user entered
+      let inputNewsTitle = document.querySelector("#newsTitle").value
+      let inputNewsSynopsis = document.querySelector("#newsSynopsis").value
+      let inputNewsUrl = document.querySelector("#newsUrl").value
+  
+      let newsObject = {
+        title: inputNewsTitle,
+        synopsis: inputNewsSynopsis,
+        url: inputNewsUrl
+      }
+      newsFetch.postNewArticle(newsObject)
+      .then(response => {
+        newsList.newshtmlappending()
+      })
     }
 }
 export default newsDomBuilder
