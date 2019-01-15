@@ -4,8 +4,7 @@ const TasksFetch = {
 // the variable being passed *****
 
 getAllTasksById() {
-  //return fetch(`http://localhost:8088/tasks?userId=1`)
-  return fetch("http://localhost:8088/tasks")
+  return fetch(`http://localhost:8088/tasks?userId=1&complete=unchecked`)
       .then(response => response.json())
     },
   

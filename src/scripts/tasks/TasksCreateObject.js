@@ -1,6 +1,7 @@
 //food.js
 import TasksFetch from "./TasksFetch"
 import TasksEditForm from "./TasksEditForm"
+import TasksList from "./TasksList"
 
 const TasksCreateObject = {
   
@@ -36,25 +37,26 @@ const TasksCreateObject = {
     taskComplete.setAttribute("class", "listItem");
     taskComplete.setAttribute("id", "gotItDone");
     taskComplete.value = taskItem.complete;
+    
     taskComplete.addEventListener("click", () => {
       let articleId = event.target.parentNode.id;
       let taskId = articleId.split("--")[1]
-      TasksFetch.getAllTasksById(taskId)
+      
+      TasksFetch.getTask(taskId)
       .then(response => {
         console.log(response)
         if (checkedOff != "unchecked") {
-          alert("You did it!")
+          alert("You did it! - The taskId = " + taskId)
         }
-        let editedTask = {
-          task: taskNameInput.value,
+        let taskToEdit = {
           complete: "checked",
       }
-  })
-
-TasksFetch.putExistingTask(taskItem, editedTask)
-  .then(response => {
-  TasksList.createDomList()
-  })
+    
+    TasksFetch.putExistingTask(taskId, taskToEdit)
+      .then(response => {
+      TasksList.createDomList()
+      })
+    })
 })  
       
 
