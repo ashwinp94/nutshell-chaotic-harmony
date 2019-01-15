@@ -15,18 +15,18 @@ const TasksEditForm = {
     taskNameField.appendChild(taskNameLabel);
     taskNameField.appendChild(taskNameInput);
     
-    taskNameInput.addEventListener("keycode", event => {
+    taskNameInput.addEventListener("keycode", function(event) {
         let x = event.keyCode;
         if (x === 13) {
             let editedTask = {
                 task: taskNameInput.value
             }
-        }
 
     TasksFetch.putExistingTask(taskItem, editedTask)
         .then(response => {
         TasksList.createDomList()
         })
+    }
     })    
 
     let taskFormArticle = document.querySelector(`#${articleId}`);

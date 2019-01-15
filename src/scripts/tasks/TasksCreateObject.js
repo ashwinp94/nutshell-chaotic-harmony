@@ -17,7 +17,7 @@ const TasksCreateObject = {
     editTaskNameBtn.addEventListener("click", () => {
       let articleId = event.target.parentNode.id;
       let taskId = articleId.split("--")[1]
-      TasksFetch.getAllTasksById(taskId)
+      TasksFetch.getTask(taskId)
       .then(response => {
         console.log(response)
         TasksEditForm.createAndAppendForm(articleId, response)
