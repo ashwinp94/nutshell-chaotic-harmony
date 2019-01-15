@@ -23,6 +23,7 @@ const NavBar = {
 		<article id="messagesOutput"></article>
 		<article id="messagesInput"></article>
 		<article id="newsOutput"></article>
+		<article id="newsForm"></article>
 		<article id="friendsOutput"></article>
 		<article id="tasksOutput"></article>
 		<article id="taskListOutput"></article>`;
@@ -72,6 +73,7 @@ const NavBar = {
 		liFour.addEventListener("click", () => {
 			NavBar.clearDom();
 			newsDomBuilder.addNewArticleForm();
+			console.log("hello grunt")
 			})
 		let liFive = document.createElement("li");
 		liFive.setAttribute("class", "liFive");
