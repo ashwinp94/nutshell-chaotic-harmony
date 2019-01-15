@@ -1,7 +1,9 @@
 import messageCollection from "./fetch"
 import messageEditForm from "./editForm"
+import messageList from "./list";
 
 let currentUserName = sessionStorage.getItem("userName");
+let currentUserId1 = sessionStorage.getItem("user Id");
 
 const chat = {
     chatBuilder(chatObject){
@@ -35,10 +37,32 @@ const chat = {
                     messageEditForm.createAndAppendForm(articleId, response)
                 })
             })
-
-        } else {
-        console.log("nothing");
         }
+    //     let friendsNameClass = document.getElementsByClassName(`${chatObject.user.username}`)
+    //     messageCollection.getFriendInChat("friends")
+    //         .then(allFriends => {
+    //             allFriends.forEach(friend => {
+    //             if (currentUserId1.userId === friendsNameClass){
+    //                 console.log(friendsNameClass)
+    //             }else{
+    //             let addButton = document.createElement("button");
+    //             addButton.textContent = "Add Friend"
+    //             chatArea.appendChild(addButton);
+    //             addButton.addEventListener("click", () => {
+
+    //             let friendsId = chatObject.user.username;
+    //             let newFriends = {
+    //             currentUserId: currentUserId1,
+    //             userId: friendsId,
+    //         }
+    //             messageCollection.postAllFriends(newFriends)
+    //             .then(response => {
+    //             messageList.friendify();
+    //                 })
+    //             })
+    //         }
+    //     })
+    // })
         return chatArea
     }
 }
