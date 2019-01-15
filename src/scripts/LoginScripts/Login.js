@@ -15,16 +15,16 @@ const Login = {
         Email:
 
 
-      <input class="email__Input" type="text" name="email"> </br>
+      <input class="email__Input" type="text" name="email">
 
     <button class="button--login">Log in</button>
-  </section> </div> ` 
+  </section> </div>`
     },
     // after when you click the register button, a new form that have email and password inputwill populate the dom
     signUp() {
 
         let registerAccount = document.querySelector("#usersOutput");
-        registerAccount.innerHTML =  `<h2> Sign Up</h2>
+        registerAccount.innerHTML = `<h2> Sign Up</h2>
         </br>
         <p> It’s free and always will be.</p> </br>
         <form>
@@ -43,7 +43,7 @@ const Login = {
     testEvent() {
         let submitButton = document.querySelector(".button--login");
         submitButton.addEventListener("click", Login.getUserData)
-       
+
     },
 
     getUserData() {
@@ -61,15 +61,12 @@ const Login = {
                         NavBar.clearDom()
                         NavBar.navBuilder()
 
-                    }else if (userStart === allUsers.length){
-                        alert ("not registered")
-                    }else { userStart ++
-
+                    } else if (userStart === allUsers.length) {
+                        alert("not registered")
+                    } 
+                    else {
+                        userStart++
                     }
-
-
-
-
 
                 });
             })
@@ -82,17 +79,18 @@ const Login = {
     registerData() {
         let newUser = document.querySelector(".usernameInput").value;
         let newEmail = document.querySelector(".emailInput").value;
-        if(newUser === "" && newEmail === ""){
-            alert ("blank page, please write something")
+        if (newUser === "" && newEmail === "") {
+            alert("blank page, please write something")
+        } else {
+            // add user input into an object that will be passed into the database
+            let newEntry = {
+                username: newUser,
+                email: newEmail
+            };
+            Data.postNewUser(newEntry)
+
+
         }
-           // add user input into an object that will be passed into the database
-           let newEntry = {
-               username : newUser,
-               email : newEmail
-           };
-           Data.postNewUser(newEntry)
-           
-        
     }
 }
 
