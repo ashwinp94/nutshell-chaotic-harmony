@@ -9,8 +9,8 @@ const chat = {
         chatArea.setAttribute("id", `chat--${chatObject.id}`)
 
         let chatName = document.createElement("h3")
-        chatName.textContent = chatObject.user.username;
-        chatName.setAttribute("id", chatObject.user.username )
+        chatName.textContent = `${chatObject.users.username}`;
+        chatName.setAttribute("id", `${chatObject.users.username}` )
 
         let chatMessage = document.createElement("section")
         chatMessage.textContent = chatObject.message;
