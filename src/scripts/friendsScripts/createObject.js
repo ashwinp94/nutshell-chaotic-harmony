@@ -1,7 +1,9 @@
 import messageCollection from "./fetch"
 import messageEditForm from "./editForm"
+import messageList from "./list";
 
 let currentUserName = sessionStorage.getItem("userName");
+let currentUserId1 = sessionStorage.getItem("user Id");
 
 const chat = {
     chatBuilder(chatObject){
@@ -18,6 +20,9 @@ const chat = {
         let chatTime = document.createElement("section")
         chatTime.textContent= chatObject.time;
 
+        chatArea.appendChild(chatName);
+        chatArea.appendChild(chatMessage);
+        chatArea.appendChild(chatTime);
 
         if (`${chatObject.user.username}`=== currentUserName) {
             let editMessageButton = document.createElement("button")
@@ -25,22 +30,39 @@ const chat = {
             chatArea.appendChild(editMessageButton);
 
             editMessageButton.addEventListener("click", () => {
-            let articleId = event.target.parentNode.id
-            let chatId = articleId.split("--")[1]
-            messageCollection.getMessage(chatId)
-            .then(response => {
-                messageEditForm.createAndAppendForm(articleId, response)
+                let articleId = event.target.parentNode.id
+                let chatId = articleId.split("--")[1]
+                messageCollection.getMessage(chatId)
+                .then(response => {
+                    messageEditForm.createAndAppendForm(articleId, response)
+                })
             })
-        })
-
-        } else {
-        console.log("nothing");
         }
+    //     let friendsNameClass = document.getElementsByClassName(`${chatObject.user.username}`)
+    //     messageCollection.getFriendInChat("friends")
+    //         .then(allFriends => {
+    //             allFriends.forEach(friend => {
+    //             if (currentUserId1.userId === friendsNameClass){
+    //                 console.log(friendsNameClass)
+    //             }else{
+    //             let addButton = document.createElement("button");
+    //             addButton.textContent = "Add Friend"
+    //             chatArea.appendChild(addButton);
+    //             addButton.addEventListener("click", () => {
 
-        chatArea.appendChild(chatName);
-        chatArea.appendChild(chatMessage);
-        chatArea.appendChild(chatTime);
-
+    //             let friendsId = chatObject.user.username;
+    //             let newFriends = {
+    //             currentUserId: currentUserId1,
+    //             userId: friendsId,
+    //         }
+    //             messageCollection.postAllFriends(newFriends)
+    //             .then(response => {
+    //             messageList.friendify();
+    //                 })
+    //             })
+    //         }
+    //     })
+    // })
         return chatArea
     }
 }

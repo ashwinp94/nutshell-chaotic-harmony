@@ -51,6 +51,17 @@ const messageForm = {
         .then(response =>{
             messageList.chatify();
         })
+    },
+    friendBuilder(friendObject) {
+        let friendArea = document.createElement("article")
+        friendArea.setAttribute("id", "friendArea")
+
+        let friendName = document.createElement("section")
+        friendName.textContent = `${friendObject.user.username}`;
+
+        friendArea.appendChild(friendName)
+
+        return friendArea
     }
 }
 
